@@ -1,0 +1,19 @@
+const mongoose = require("mongoose");
+const options = {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false,
+    useCreateIndex: true,
+};
+mongoose
+    .connect(dbConnection, options)
+    .then(() => {
+        console.log("mongoDB connected");
+    })
+    .catch((err) => {
+        console.log("Connection error", err.message);
+    });
+
+
+const db = mongoose.connection;
+module.exports = db;
