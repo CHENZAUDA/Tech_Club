@@ -30,6 +30,7 @@ const AppRouter = () => {
                     <Route path="/forum">
                        <DisplayForums/> 
                     </Route>
+                    
 
                     <Route path="/forum/:id">
                         {/* {!user ? <ShowOneForum/> : <Redirect to="/auth/login" />} */}
