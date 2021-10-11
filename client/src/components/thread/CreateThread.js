@@ -13,7 +13,7 @@ const CreateForum = () => {
             // forumId: id
         };
 
-        // const response = await axios.post('api/thread/create',data)
+        //  לבצע משיכת מידע ולעשות פוסט על נושא שנוצר
         // const {_id} = response.data;
         // history.push('/thread/' + _id);
 
