@@ -17,19 +17,51 @@ const userSchema = new Schema(
         },
         phone: {
             type: String,
-            required: true,
+            required: true
         },
-        github: {
+        role: {
             type: String,
             required: true,
+            default: 'User'
+        },
+        // userName:{
+        //     type:String,
+        // required:true
+        // },
+        // password: {
+        //     type: String,
+        // required: true
+        // },
+        github: {
+            type: String,
+            required: true
         },
         address: {
             type: String,
             required: false,
+            default: ''
         },
-        messages: [{ type: Schema.Types.ObjectId, ref: "posts" }],
+        pref: {
+            type: [
+                {
+                    option_1: {
+                        type: String,
+                        required: false
+                    },
+                    option_2: {
+                        type: String,
+                        required: false
+                    },
+                    option_3: {
+                        type: String,
+                        required: false
+                    },
+                }
+            ]
+        },
+        posts: [{ type: Schema.Types.ObjectId, ref: "posts" }]
     },
     { timestamps: true }
 );
 const User = mongoose.model("users", userSchema);
-module.exports =User;
+module.exports = User;

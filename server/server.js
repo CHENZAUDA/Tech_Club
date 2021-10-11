@@ -7,20 +7,25 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-const test = require('./routes/testRoute')
+
+//import route
+const forum = require('./routes/postRoute');
+const user = require('./routes/userRoute');
+const category = require('./routes/categoryRoute');
+
+const isToken = require('./controllers/authorization/isToken')
+
 //DB connection
 const db = require("./DB");
 db.on("error", () => {
   console.log('Connection error');
 });
 
-app.use('/test',test)
-// if (process.env.NODE_ENV === 'production') {
-//   app.use(express.static(path.join(__dirname, '../client/build')));
-//   app.get('*', (req, res)=>{
-//       res.sendFile(path.join(__dirname, '../client/build', 'index.html'));
-//   });
-// }
+
+//app route
+app.use('/api/post',forum)
+app.use('/api/user',user)
+app.use('/api/category',category)
 
 
 const server = app.listen(PORT, () => {
