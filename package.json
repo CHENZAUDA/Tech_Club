@@ -4,6 +4,8 @@
   "description": "tech-club",
   "main": "server.js",
   "scripts": {
+    "start":"nodemon server/server.js",
+    "dev":"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",

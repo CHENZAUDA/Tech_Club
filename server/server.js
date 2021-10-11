@@ -7,14 +7,14 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
+const test = require('./routes/testRoute')
 //DB connection
 const db = require("./DB");
 db.on("error", () => {
   console.log('Connection error');
 });
 
-
+app.use('/test',test)
 // if (process.env.NODE_ENV === 'production') {
 //   app.use(express.static(path.join(__dirname, '../client/build')));
 //   app.get('*', (req, res)=>{

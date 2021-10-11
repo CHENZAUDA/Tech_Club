@@ -1,9 +1,10 @@
+const env = require('dotenv').config()
+const dbConnection = process.env.DB_CONNECTION
+
 const mongoose = require("mongoose");
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
 };
 mongoose
     .connect(dbConnection, options)
@@ -14,6 +15,5 @@ mongoose
         console.log("Connection error", err.message);
     });
 
-
-const db = mongoose.connection;
-module.exports = db;
+module.exports = mongoose.connection;
+ 
