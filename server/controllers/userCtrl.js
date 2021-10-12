@@ -1,7 +1,7 @@
 const UserModel = require('../models/userModel')
 const { validateRegisterInput } = require('./authorization/registerValidation')
 const bcrypt = require("bcrypt");
-const {SendEmails} = require('../utils/sendEmail')
+const { SendEmails } = require('../utils/sendEmail')
 const { nullError } = require("../utils/Errors");
 
 
@@ -59,31 +59,57 @@ const enterPassword = async (req, res) => {
         bcrypt.hash(req.body.password, salt, async (err, hash) => {
             if (err) throw err;
             req.body.password = hash;
-            // try {
-                const userName = {$set:{userName:req.body.userName}}
-                const password = { $set: { password: req.body.password } };
-                const isApprove = { $set: { isApprove: true } };
-                await UserModel.findByIdAndUpdate(req.body.id,
-                    password, isApprove,userName,
-                    { new: true },
-                    (err, result) => {
-                        if (err) throw err
-                        nullError(result, res);
-                    })
-            // }
-            // catch (err) {
-            //     res
-            //         .status(400)
-            //         .json({
-            //             success: false,
-            //             message: "Enter password field",
-            //             error: err.message
-            //         });
-            // }
+            try {
+            const userName = { $set: { userName: req.body.userName } }
+            const password = { $set: { password: req.body.password } };
+            const isApprove = { $set: { isApprove: true } };
+            await UserModel.findByIdAndUpdate(req.body.id,
+                password, isApprove, userName,
+                { new: true },
+                (err, result) => {
+                    if (err) throw err
+                    nullError(result, res);
+                })
+            }
+            catch (err) {
+                res
+                    .status(400)
+                    .json({
+                        success: false,
+                        message: "Enter password field",
+                        error: err.message
+                    });
+            }
         })
 
 
     })
 }
 
-module.exports = { newUser, enterPassword }
+const getUsers = async (req, res, next) => {
+    try {
+        const oneUser = await UserModel.find({})
+        res.send(oneUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
+const getUserById = async (req, res, next) => {
+    try {
+        const oneUser = await UserModel.find({ _id: req.params.id })
+        res.send(oneUser)
+    } catch (error) {
+        console.log(error)
+    }
+}
+
+module.exports = {
+    newUser,
+    enterPassword,
+    newUser,
+    getUsers,
+    getUserById
+}
+
+
+
