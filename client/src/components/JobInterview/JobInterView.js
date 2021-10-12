@@ -1,7 +1,6 @@
 import React from "react";
 import "./JobInterView.css";
-import { HiChat } from "react-icons/hi";
-import { FaRegBell } from "react-icons/fa";
+import ForumIcon from "@material-ui/icons/Forum";
 export default function JobInterView() {
   return (
     <div className="container">
@@ -19,6 +18,9 @@ export default function JobInterView() {
             Object-Oriented Programming, או בקיצור OOP) הוא פרדיגמת תכנות
             המשתמשת ב"עצמים" (אובייקטים) לשם תכנות תוכניות מחשב.
           </p>
+          <span className="icons">
+        <ForumIcon> icon</ForumIcon>
+      </span>
         </div>
         <div className="template">
           <h4>שאלות אלגוריתם</h4>
@@ -28,6 +30,9 @@ export default function JobInterView() {
             להתאמת מחרוזות, הם מחלקה חשובה של אלגוריתמים על מחרוזות המנסים למצוא
             היכן מחרוזת אחת או יותר (נקראות גם תבניות)
           </p>
+          <span className="icons">
+        <ForumIcon> icon</ForumIcon>
+      </span>
         </div>
         <div className="template">
           <h4>HR ראיונות</h4>
@@ -37,6 +42,9 @@ export default function JobInterView() {
             לשני שלבים: ניתוח עבודה, שהוא תהליך של הערכת דרישות התפקיד והכישורים
             הנדרשים על מנת לבצע אותו, ובחירת עובד בעזרת אמצעי מיון.
           </p>
+          <span className="icons">
+        <ForumIcon> icon</ForumIcon>
+      </span>
         </div>
         <div className="template">
           <h4>טיפים</h4>
@@ -44,8 +52,11 @@ export default function JobInterView() {
           <p>
             לימודי מחשבים ותכנות אונליין - היום קיימת אפשר ללמוד באמצעות קורסים
             ושיעורים הזמינים באינטרנט. ניתן למצוא שיעורי מחשבים במגוון רחב של
-            נושאים, מותאמים לכל הרמות ומאפשרים לאנשים לבדוק האם התחום מדבר 
+            נושאים, מותאמים לכל הרמות ומאפשרים לאנשים לבדוק האם התחום מדבר
           </p>
+          <span className="icons">
+        <ForumIcon> icon</ForumIcon>
+      </span>
         </div>
         <div className="template">
           <h4>תיק עבודות</h4>
@@ -57,16 +68,11 @@ export default function JobInterView() {
             בנושא גיט מאוד חשוב משום שזה הנסיון בתור ג'וניור וככה תוכל להוכיח
             שיש לך משהו ביד
           </p>
+          <span className="icons">
+            <ForumIcon> icon</ForumIcon>
+          </span>
         </div>
       </div>
-      <span className="icons">
-        <button>
-          <HiChat />
-        </button>
-        <button>
-          <FaRegBell />
-        </button>
-      </span>
     </div>
   );
 }
