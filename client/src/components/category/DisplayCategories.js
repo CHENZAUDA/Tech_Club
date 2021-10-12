@@ -2,19 +2,29 @@ import React, {useState, useEffect} from 'react'
 import {useHistory} from 'react-router-dom';
 
 const DisplayCategories = () => {
-    const [categories,setCategories] = useState([]);
+    // const [categories,setCategories] = useState([]);
 
-    useEffect(()=> {
-        getCategories();
-    },[]);
+    // useEffect(()=> {
+    //     getCategories();
+    // },[]);
 
-    const getCategories = async () => {
-        fetch('localhost:3000/api.category')
-        .then(res => res.json())
-        .then(data => setCategories(data));
-    };
+    // const getCategories = async () => {
+    //     fetch('localhost:3000/api.category')
+    //     .then(res => res.json())
+    //     .then(data => setCategories(data));
+    // };
 
     const history = useHistory();
+
+    const categories = [{
+        title:"Matan Baynessai", createdAt:"12/10/2021"
+    },{
+        title:"Matan Baynessai", createdAt:"12/10/2021"
+    },{
+        title:"Matan Baynessai", createdAt:"12/10/2021"
+    }]
+
+
 
     return (
         <div>
