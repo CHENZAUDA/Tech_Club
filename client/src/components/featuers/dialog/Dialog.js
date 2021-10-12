@@ -7,14 +7,29 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import EditLocationAltIcon from "@mui/icons-material/EditLocationAlt";
+import EditIcon from "@mui/icons-material/Edit";
+import Table from "@mui/material/Table";
+import TableBody from "@mui/material/TableBody";
+import TableCell from "@mui/material/TableCell";
+import TableContainer from "@mui/material/TableContainer";
+import TableHead from "@mui/material/TableHead";
+import CheckIcon from "@mui/icons-material/Check";
+import TableRow from "@mui/material/TableRow";
+import Paper from "@mui/material/Paper";
 import "./dialog.css";
 
 const FormDialog = () => {
   const [open, setOpen] = React.useState(false);
-  const [iseditButtonClicked, setIseditButtonClicked] = React.useState(false);
-
-
+  const [iseditEditButtonClicked, setiseditEditButtonClicked] =
+    React.useState(false);
+  const user = {
+    userName: "someGuy",
+    password: "fghjk123",
+    email: "fghjk123@.mail",
+    phone: "0546193138",
+    gitHub: "someGuygithub",
+  };
+  const [user1, SetUser] = React.useState(user);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -24,17 +39,26 @@ const FormDialog = () => {
     setOpen(false);
   };
 
-  const user = {
-    userName: "someGuy",
-    password: "fghjk123",
-    email: "fghjk123@.mail",
-    phone: "0546193138",
-    gitHub: "someGuygithub",
+  const showEditInput = () => {
+    setiseditEditButtonClicked(true);
+    alert("hello");
+  };
+  const checkout = () => {
+    setiseditEditButtonClicked(false);
+    alert("hello");
+  };
+  function createData(name, calories, fat, carbs, protein) {
+    return { name, calories, fat, carbs, protein };
+  }
+  const onEditUser = (e) => {
+    SetUser({
+      ...user1,
+      [e.target.id]: e.target.value,
+    });
+    console.log(user1)
+
   };
 
-  const showEditInput = () => {
-    setIseditButtonClicked(true)
-  };
   return (
     <div>
       <AccountCircleIcon
@@ -43,66 +67,128 @@ const FormDialog = () => {
         style={{ color: "#716f81", marginTop: 20 }}
       ></AccountCircleIcon>
       <Dialog open={open} onClose={handleClose}>
-        <DialogTitle>היי שם משתמש </DialogTitle>
+        <DialogTitle style={{ textAlign: "right" }}>היי שם משתמש </DialogTitle>
         <DialogContent>
-          הפריטים האישיים
-          <DialogContentText></DialogContentText>
-          <div className="profile-details-wrapper">
-            <div className>
-              <div className="profile-details-row">
-                <p>{user.userName}</p>:
-                <p className="profile-details-key">שם משתמש</p>
-                <EditLocationAltIcon onClick={showEditInput} />
-              </div>
-              <div className="profile-details-row">
-                <p>{user.password}</p>:
-                <p className="profile-details-key">סימסה</p>
-              </div>
-              <div className="profile-details-row">
-              {iseditButtonClicked?<h1>hello</h1>:<p>{user.phone}</p>}
-                <p className="profile-details-key">טלפון </p>
-              </div>
-              <div className="profile-details-row">
-                <p>{user.email}</p>:
-                <p className="profile-details-key"> מייל </p>
-              </div>
-              <div className="profile-details-row">
-                <p>{user.gitHub}</p>:
-                <p className="profile-details-key"> גיט האב </p>
-              </div>
+          <DialogContentText style={{ textAlign: "right", padding: "10px" }}>
+            הפריטים האישיים שלך
+            {!iseditEditButtonClicked ? (
+              <EditIcon onClick={showEditInput} />
+            ) : (
+              <CheckIcon style={{ color: "green" }} onClick={checkout} />
+            )}
+          </DialogContentText>
+
+          {!iseditEditButtonClicked ? (
+            <TableContainer component={Paper}>
+              <Table sx={{ minWidth: 500 }} aria-label="simple table">
+                <TableBody>
+                  <TableRow
+                    key={"userName"}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user1.userName}
+                    </TableCell>
+                    <TableCell align="right">שם משתמש</TableCell>
+                  </TableRow>
+
+                  <TableRow
+                    key={"password"}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user1.password}
+                    </TableCell>
+                    <TableCell align="right">סיסמה</TableCell>
+                  </TableRow>
+
+                  <TableRow
+                    key={"phone"}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user1.phone}
+                    </TableCell>
+                    <TableCell align="right">טלפון</TableCell>
+                  </TableRow>
+                  <TableRow
+                    key={"phone"}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user1.email}
+                    </TableCell>
+                    <TableCell align="right">איימל</TableCell>
+                  </TableRow>
+                  <TableRow
+                    key={"phone"}
+                    sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
+                  >
+                    <TableCell component="th" scope="row">
+                      {user1.gitHub}
+                    </TableCell>
+                    <TableCell align="right">גיט האב</TableCell>
+                  </TableRow>
+                </TableBody>
+              </Table>
+            </TableContainer>
+          ) : (
+            <div>
+              <TextField
+                autoFocus
+                margin="dense"
+                id="userName"
+                label="הכנס שם משתמש חדש"
+                type="text"
+                fullWidth
+                variant="standard"
+                onChange={onEditUser}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="password"
+                label="הכנס סיסמה חדשה"
+                type="password"
+                fullWidth
+                variant="standard"
+                onChange={onEditUser}
+              />{" "}
+              <TextField
+                autoFocus
+                margin="dense"
+                id="passwordValid"
+                label="אנא אמת סיסמה"
+                type="password"
+                fullWidth
+                variant="standard"
+                onChange={onEditUser}
+              />{" "}
+              <TextField
+                autoFocus
+                margin="dense"
+                id="email"
+                label="הכנס איימל חדש"
+                type="email"
+                fullWidth
+                variant="standard"
+                onChange={onEditUser}
+              />
+              <TextField
+                autoFocus
+                margin="dense"
+                id="phone"
+                label="הכנס טלפון חדש"
+                type="email"
+                fullWidth
+                variant="standard"
+                onChange={onEditUser}
+              />
             </div>
-          </div>
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />{" "}
-          <TextField
-            autoFocus
-            margin="dense"
-            id="name"
-            label="Email Address"
-            type="email"
-            fullWidth
-            variant="standard"
-          />
+          )}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Subscribe</Button>
+          <Button onClick={handleClose}>סגור</Button>
         </DialogActions>
       </Dialog>
     </div>
