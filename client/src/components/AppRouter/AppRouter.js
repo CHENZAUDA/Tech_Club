@@ -9,6 +9,7 @@ import ShowAllCategories from '../category/ShowAllCategories'
 import BlogRedirect from "../BlogRedirect/BlogRedirect";
 import BlogComponent from "../Blog/BlogComponent";
 import SocialMediaCom from '../Social Media/SocialMediaCom'
+import DisplayCategories from "../category/DisplayCategories";
 
 const AppRouter = () => {
   return (
@@ -27,7 +28,7 @@ const AppRouter = () => {
           <Route path="/category/create">
             {/* {!user ? <CreateCategory/> : <Redirect to="/auth/login" />} */}
           </Route>
-          <Route path="/category/interviews">
+          <Route path="/category/interviews/">
             <ShowAllCategories />
           </Route>
           <Route path="/category">
@@ -48,8 +49,8 @@ const AppRouter = () => {
           <Route path="/forum/:id">
             {/* {!user ? <ShowOneForum/> : <Redirect to="/auth/login" />} */}
           </Route>
-          <Route path="/category/interviews/test">
-            {/* <ShowOneCategory/> */}
+          <Route path="/forum/display/">
+            <ShowOneCategory />
             <Home />
           </Route>
           <Route path="/forum/create/:id">
@@ -65,7 +66,7 @@ const AppRouter = () => {
             {/* {!user ? <DisplayThreads/> : <Redirect to="/auth/login" />} */}
           </Route>
           <Route path="/new">
-            <ShowOneCategory />
+            <DisplayCategories />
           </Route>
         </Switch>
       </Router>
