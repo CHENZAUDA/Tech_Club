@@ -4,12 +4,11 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import SettingsIcon from "@mui/icons-material/Settings";
 import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
+import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
+import FormDialog from "../dialog/Dialog";
 import "./Navbar.css";
-
-export default function ButtonAppBar() {
+const Navbar = () => {
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "white" }}>
@@ -33,14 +32,7 @@ export default function ButtonAppBar() {
           >
             <p className="navbar-login-btn-text">התחבר</p>
           </Button>
-          <AccountCircleIcon
-            style={{
-              color: "#716f81",
-              width: 30,
-              marginTop: 20,
-            }}
-          />
-
+          <FormDialog  />
           <NotificationsNoneIcon
             style={{
               color: "#716f81",
@@ -54,28 +46,26 @@ export default function ButtonAppBar() {
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
-
           <div className="menu-items">
             <a className="menu-item">
               {" "}
               <div>חנות</div>
             </a>
-
+            {/* <Link to="/home/learning-contect"> */}
             <a className="menu-item">
               <div>תכני למידה </div>
             </a>
-            <a className="menu-item">
-              {" "}
-              <div>חברות הייטק</div>
-            </a>
+            {/* </Link> */}
             <a className="menu-item">
               {" "}
               <div>ראיונות</div>
             </a>
-            <a className="menu-item"> מערכת</a>
+            <a className="menu-item"> אודותינו</a>
           </div>
         </Toolbar>
       </AppBar>
     </Box>
   );
-}
+};
+
+export default Navbar;

@@ -4,6 +4,7 @@ import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
 import AccountMenu from "../../featuers/Navbar/Navbar";
 import Navbar from "../../featuers/Navbar/Navbar";
+import LearningContect from "../learningContent/LearningContent";
 const Home = () => {
   const history = useHistory();
   return (
@@ -28,11 +29,11 @@ const Home = () => {
               marginTop: 20,
             }}
           >
-            <p className="home-btn-text">התחבר</p>
+            <p className="home-btn-text">הירשם</p>
           </Button>
         </div>
         <div className="home-first-section-img-container">
-          <img id="home-img-first-section"src="./learing-vector.jpg" />
+          <img id="home-img-first-section" src="./learing-vector.jpg" />
         </div>
       </div>
       <button onClick={() => history.push("/forum")}>Click</button>
