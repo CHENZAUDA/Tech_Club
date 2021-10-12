@@ -33,4 +33,21 @@ const newUser = async (req,res)=>{
   }
 }
 
-module.exports= {newUser}
+const getUsers = async (req,res,next) => {
+  try{
+  const oneUser = await UserModel.find({})
+   res.send(oneUser)
+}catch(error){
+  console.log(error)
+}
+}
+const getUserById = async (req,res,next) => {
+  try{
+  const oneUser = await UserModel.find({_id:req.params.id})
+   res.send(oneUser)
+}catch(error){
+  console.log(error)
+}
+}
+
+module.exports= {newUser,getUsers,getUserById}
