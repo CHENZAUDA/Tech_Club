@@ -22,7 +22,13 @@ const validateRegisterInput = (data) => {
   } else if (!Validator.isEmail(data.email)) {
     errors.email = "Email is invalid";
   }
+  if (Validator.isEmpty(data.password)) {
+    errors.password = "Password field is required";
+  }
 
+  if (!Validator.isLength(data.password, { min: 8, max: 20 })) {
+    errors.password = "Password must be at least 8 characters";
+  }
   if (!Validator.isLength(data.phone, { min: 8, max: 10 })) {
     errors.phone = "phone must be at least 8 characters";
   }
