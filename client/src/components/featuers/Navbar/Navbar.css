@@ -1,0 +1,36 @@
+#navbar-logo-tech {
+  width: 60px;
+  border-radius: 100%;
+}
+.menu-items {
+  width: 50%;
+  /* background: red; */
+  display: flex;
+  justify-content: space-around;
+  text-decoration: none;
+}
+
+.menu-item {
+  color: #716f81;
+  display: flex;
+  flex-wrap: wrap;
+}
+a {
+  text-decoration: none;
+}
+a:active {
+  background-color: yellow;
+  border: 5px solid black;
+}
+
+.navbar-login-btn-text {
+  color: #716f81;
+}
+
+@media only screen and (max-width: 800px) {
+  .menu-items {
+    width: 100%;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
