@@ -22,6 +22,7 @@ export default function BlogRedirect() {
             {/* <button onClick={()=>{}}>שלח תגובה</button> */}
             <h3>{data}</h3>
 
+
         </div>
     )
 }
