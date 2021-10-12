@@ -36,7 +36,6 @@ const newUser = async (req, res) => {
             phone: phone,
             role: role,
             userName: userName,
-            // password: req.body.password,
             github: github,
             address: address,
             isApprove: isApprove
@@ -71,6 +70,7 @@ const enterPassword = async (req, res) => {
     if (!Validator.isLength(req.body.password, { min: 8, max: 20 })) {
         errors.password = "Password must be at least 8 characters";
     }
+
     SendEmails(req, res);
     //Password Encryption Before That it enters to the database
     bcrypt.genSalt(12, (err, salt) => {
