@@ -5,6 +5,8 @@ import RegisterTwoForm from '../userauth/RegisterTwoForm'
 import Home from '../pages/Home'
 import LoginForm from '../userauth/LoginForm'
 import ForgotPassword from '../userauth/ForgotPassword'
+import DisplayProduct from '../products/DisplayProduct'
+import Products from '../products/Products'
 // import DisplayForums from '../forum/DisplayForums'
 // import ShowOneCategory from '../category/ShowOneCategory'
 // import ShowAllCategories from '../category/ShowAllCategories'
@@ -23,6 +25,9 @@ const AppRouter = () => {
                     <Route exact path="/register/two">
                         <RegisterTwoForm/>
                     </Route>
+                    <Route  path="/product/:id">
+                        <DisplayProduct/>
+                    </Route>
                     <Route  path="/register/one">
 \                        <RegisterOneForm/>
                     </Route>
@@ -31,6 +36,9 @@ const AppRouter = () => {
                     </Route>
                     <Route  path="/forgotpass">
 \                        <ForgotPassword/>
+                    </Route>
+                    <Route  path="/products">
+\                        <Products/>
                     </Route>
                     {/* <Route path="/auth/login"> */}
                         {/* {!user ? <Login/> : <Redirect to="/" />} */}
