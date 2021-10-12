@@ -73,52 +73,6 @@ const newUser = async (req, res) => {
     });
 }
 
-const enterPassword = async (req, res) => {
-    if (Validator.isEmpty(req.body.password)) {
-        errors.password = "Password field is required";
-    }
-    if (!Validator.isLength(req.body.password, { min: 8, max: 20 })) {
-        errors.password = "Password must be at least 8 characters";
-    }
-    SendEmails(req, res);
-    //Password Encryption Before That it enters to the database
-    bcrypt.genSalt(12, (err, salt) => {
-        if (err) throw err;
-        bcrypt.hash(req.body.password, salt, async (err, hash) => {
-            if (err) throw err;
-            console.log(req.body.password)
-            req.body.password = hash;
-            try {
-                const password = { $set: { password: req.body.password } };
-                await UserModel.findByIdAndUpdate(req.body.id,
-                    password,
-                    { new: true },
-                    (err, result) => {
-                        console.log(result)
-                        if (err) console.log(err)
-                        res
-                            .status(200)
-                            .json({
-                                success: true,
-                                message: "send email",
-                                data: result
-                            })
-                    })
-            }
-            catch (err) {
-                res
-                    .status(400)
-                    .json({
-                        success: false,
-                        message: "Enter password field",
-                        error: err.message
-                    });
-            }
-        })
-
-
-    })
-}
 
 const getUsers = async (req, res, next) => {
     try {
