@@ -11,7 +11,6 @@ const post = async (req, res) => {
         data: result,
       });
     });
-    
   } catch (err) {
     res.status(400).json({
       success: false,
@@ -42,7 +41,7 @@ const getAll = async (req, res) => {
 };
 const getById = async (req, res) => {
   try {
-    await PostModel.findById(req.body.id, (err, result) => {
+    await PostModel.findById(req.body._id, (err, result) => {
       if (err) console.log(err);
       console.log(result);
       res.status(201).json({
@@ -50,6 +49,7 @@ const getById = async (req, res) => {
         message: "get By Id success",
         data: result,
       });
+      console.log(result);
     });
   } catch (err) {
     res.status(400).json({

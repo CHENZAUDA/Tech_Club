@@ -5,11 +5,11 @@ const mongoose = require("mongoose");
 const options = {
     useNewUrlParser: true,
     useUnifiedTopology: true,
-    useFindAndModify: false,
-     useCreateIndex: true,
+    // useFindAndModify: false,
+    //  useCreateIndex: true,
 };
 mongoose
-    .connect(dbConnection, options)
+    .connect("mongodb+srv://chen:zauda@cluster0.xce2x.mongodb.net/techclub", options)
     .then(() => {
         console.log("mongoDB connected");
     })
