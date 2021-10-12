@@ -14,7 +14,7 @@ const getProductById =async  (req,res,next) => {
     try{
 
     const product = await productModel.findById(req.params.id)
-    res.send({message:"one product displayed",success:true,product:product})
+    res.send(product)
     }catch(error){
         res.json({message:"error",success:false})
     }

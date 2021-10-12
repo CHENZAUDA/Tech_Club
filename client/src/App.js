@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import logo from "./logo.svg";
 import "./App.css";
 import AuthContext from "./context/AuthContext";
@@ -53,14 +54,32 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const classes = useStyles();
+=======
+import logo from './logo.svg';
+import './App.css';
+import AuthContext from './context/AuthContext';
+import AppRouter from './components/AppRouter/AppRouter';
+import Products from './components/products/Products'
+
+function App() {
+>>>>>>> 6f69ca60432f4de630db4d7524844f2dbcc13808
   return (
     <div>
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
+<<<<<<< HEAD
       {/* <LearningContect/> */}
       <AppRouter />
 
 
       {/* <LoginForm/>  */}
+=======
+        <AppRouter/>
+        {/* <Products/> */}
+        {/* <RegisterOneForm/> */}
+        {/* <RegisterTwoForm/> */}
+        
+        {/* <LoginForm/>  */}
+>>>>>>> 6f69ca60432f4de630db4d7524844f2dbcc13808
       {/* </AuthContext.Provider> */}
     </div>
   );

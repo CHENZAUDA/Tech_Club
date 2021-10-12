@@ -1,0 +1,8 @@
+.cart-table {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 70%;
+  padding-left: 10%;
+}
