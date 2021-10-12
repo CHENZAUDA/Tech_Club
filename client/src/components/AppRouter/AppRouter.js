@@ -1,5 +1,7 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
+import RegisterOneForm from '../userauth/RegisterOneForm'
+import RegisterTwoForm from '../userauth/RegisterTwoForm'
 import Home from '../pages/Home'
 import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
