@@ -1,26 +1,35 @@
 const UserModel = require('../models/userModel')
-const { adminVerified } = require('../utils/sendEmail')
+const { validateRegisterInput } = require('./authorization/registerValidation')
 const bcrypt = require("bcrypt");
-const { nullError, isEmptyId, nullVariable } = require("../utils/Errors");
+const {SendEmails} = require('../utils/sendEmail')
+const { nullError } = require("../utils/Errors");
 
 
 const newUser = async (req, res) => {
-    adminVerified(req, res)
-    const { firstName, lastName, email, phone, github, address, role, userName,isApprove } = req.body;
+    const { errors, isValid } = validateRegisterInput(req.body);
+    if (!isValid) {
+        return res
+            .status(401)
+            .json({
+                success: false,
+                message: "there is error with validation",
+                errors: errors
+            });
+    }
+    const { firstName, lastName, email, phone, github, address, role, isApprove } = req.body;
     const newUser = new UserModel({
         firstName: firstName,
         lastName: lastName,
         email: email,
         phone: phone,
         role: role,
-        userName: userName,
         password: req.body.password,
         github: github,
         address: address,
-        isApprove:isApprove
+        isApprove: isApprove
     });
     try {
-        await newUser.save();
+        await newUser.save()
         res
             .status(201)
             .json({
@@ -38,35 +47,39 @@ const newUser = async (req, res) => {
                 error: err.message
             })
     }
+
 }
 
 
 const enterPassword = async (req, res) => {
+    SendEmails(req, res);
+    //Password Encryption Before That it enters to the database
     bcrypt.genSalt(12, (err, salt) => {
         if (err) throw err;
         bcrypt.hash(req.body.password, salt, async (err, hash) => {
             if (err) throw err;
             req.body.password = hash;
-            try {
-                const password = { $set:{password:req.body.password}};
-                const isApprove = { $set: {isApprove:true} };
+            // try {
+                const userName = {$set:{userName:req.body.userName}}
+                const password = { $set: { password: req.body.password } };
+                const isApprove = { $set: { isApprove: true } };
                 await UserModel.findByIdAndUpdate(req.body.id,
-                    password,isApprove,
+                    password, isApprove,userName,
                     { new: true },
                     (err, result) => {
                         if (err) throw err
                         nullError(result, res);
                     })
-            }
-            catch (err) {
-                res
-                    .status(400)
-                    .json({
-                        success: false,
-                        message: "Enter password field",
-                        error: err.message
-                    });
-            }
+            // }
+            // catch (err) {
+            //     res
+            //         .status(400)
+            //         .json({
+            //             success: false,
+            //             message: "Enter password field",
+            //             error: err.message
+            //         });
+            // }
         })
 
 
