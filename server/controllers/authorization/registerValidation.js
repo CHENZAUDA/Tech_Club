@@ -7,6 +7,7 @@ const validateRegisterInput = (data) => {
   data.email = !isEmpty(data.email) ? data.email : "";
   data.password = !isEmpty(data.password) ? data.password : "";
   data.phone = !isEmpty(data.phone) ? data.phone : "";
+  console.log(data)
 
 
   if (Validator.isEmpty(data.firstName)) {
@@ -22,13 +23,6 @@ const validateRegisterInput = (data) => {
     errors.email = "Email is invalid";
   }
 
-  if (Validator.isEmpty(data.password)) {
-    errors.password = "Password field is required";
-  }
-
-  if (!Validator.isLength(data.password, { min: 8, max: 20 })) {
-    errors.password = "Password must be at least 8 characters";
-  }
   if (!Validator.isLength(data.phone, { min: 8, max: 10 })) {
     errors.phone = "phone must be at least 8 characters";
   }
@@ -38,4 +32,4 @@ const validateRegisterInput = (data) => {
   };
 };
 
-module.exports = {validateRegisterInput};
+module.exports = validateRegisterInput;
