@@ -2,12 +2,11 @@ const nodemailer = require("nodemailer");
 const { EMAIL_API, EMAIL_ADDRESS } = process.env;
 
 const SendEmails = (req, res) => {
-    const { email, userName, password } = req.body;
+    const { email, password } = req.body;
     const output = `
       <h3> ברוך/ה הבא/ה ל Tech-Club </h3>
       <h4>להלן פרטי התתחברות למועדון טק קריירה </h4>
       <ul>  
-        <li>user name: ${userName}</li>
         <li>password: ${password}</li>
       </ul>
       <h3>!שים לב </h3>
@@ -37,7 +36,7 @@ const SendEmails = (req, res) => {
     try {
         transporter.sendMail(options, (error, info) => {
             if (error) throw error
-            console.log("Message sent: %s", info);
+            console.log("Message sent: %s", info.messageId);
             console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
             res.send("success");
