@@ -1,6 +1,6 @@
 import React from 'react'
 import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
-import Home from '../pages/Home'
+import Home from '../pages/Home/Home'
 import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
