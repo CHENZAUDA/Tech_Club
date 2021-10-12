@@ -41,6 +41,22 @@
   flex-direction: row-reverse;
   justify-content: space-around;
   width: 100%;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.product-img-display {
+  height: 250px;
+  width: 350px;
+}
+
+.product-header {
+  font-size: 50px;
+}
+
+.product-desc {
+  text-align: right;
+  width: 80%;
+  font-size: 15px;
 }
 
 .product-display img {
