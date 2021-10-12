@@ -7,10 +7,11 @@ import LoginForm from '../userauth/LoginForm'
 import ForgotPassword from '../userauth/ForgotPassword'
 import DisplayProduct from '../products/DisplayProduct'
 import Products from '../products/Products'
-// import DisplayForums from '../forum/DisplayForums'
-// import ShowOneCategory from '../category/ShowOneCategory'
-// import ShowAllCategories from '../category/ShowAllCategories'
-
+import DisplayForums from '../forum/DisplayForums'
+import ShowOneCategory from '../category/ShowOneCategory'
+import ShowAllCategories from '../category/ShowAllCategories'
+import CartStore from '../cart/CartStore'
+import DisplayCategories from '../category/DisplayCategories'
 
 
 const AppRouter = () => {
@@ -40,6 +41,9 @@ const AppRouter = () => {
                     <Route  path="/products">
 \                        <Products/>
                     </Route>
+                    <Route  path="/cart">
+                        <CartStore/>
+                    </Route>
                     {/* <Route path="/auth/login"> */}
                         {/* {!user ? <Login/> : <Redirect to="/" />} */}
                     {/* </Route>
@@ -51,35 +55,37 @@ const AppRouter = () => {
                     {/* </Route>
                     <Route path="/category/interviews">
                         <ShowAllCategories/> 
+                    </Route>*/}
+                    <Route path="/category"> 
+                       <DisplayCategories/> 
                     </Route>
-                    <Route path="/category"> */}
-                        {/* {!user ? <DisplayCategories/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
                     <Route path="/forum">
                        <DisplayForums/> 
                     </Route>
-
-                    <Route path="/forum/:id"> */}
-                        {/* {!user ? <ShowOneForum/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
-                    <Route  path="/category/interviews/test"> */}
-                        {/* <ShowOneCategory/> */}
-                        {/* <Home/>
+                    <Route path="/forum/all">
+                        <ShowAllCategories/>
                     </Route>
-                    <Route path="/forum/create/:id"> */}
+
+                    {/* <Route path="/forum/:id"> */}
+                        {/* {!user ? <ShowOneForum/> : <Redirect to="/auth/login" />} */}
+                    {/* </Route> */}
+                    <Route  path="/category/interviews/test">
+                        <ShowOneCategory/>
+                    </Route>
+                    {/* <Route path="/forum/create/:id"> */}
                         {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
                     {/* </Route>
                     <Route path="/thread/create/:id"> */}
                         {/* {!user ? <CreateThread/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
-                    <Route path="/thread/:id"> */}
-                        {/* {!user ? <ShowOneThread/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
-                    <Route path="/thread"> */}
-                        {/* {!user ? <DisplayThreads/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
+                    {/* </Route> */}
+                    {/* <Route path="/thread/:id">
+                        <ShowOneForum/>
+                    </Route>
+                    <Route path="/thread">
+                       <DisplayForums/>
+                    </Route>
                     <Route path="/new">
-                        <ShowOneCategory/>
+                        <CreateForum/>
                                             </Route> */}
                 </Switch>
             </Router>
