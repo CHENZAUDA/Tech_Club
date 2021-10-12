@@ -7,7 +7,6 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import {
-  BrowserRouter as Router,
   useHistory
 } from "react-router-dom";
 
@@ -52,6 +51,7 @@ export default function BlogComponent() {
             </CardContent>
             <CardActions>
               <Button
+                
                 onClick={() => history.push("/blog")}
                 variant="contained"
                 size="large"

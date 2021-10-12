@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useHistory} from 'react-router-dom';
+import {useHistory,useParams,Link} from 'react-router-dom';
 
 const DisplayCategories = () => {
     // const [categories,setCategories] = useState([]);
@@ -13,8 +13,18 @@ const DisplayCategories = () => {
     //     .then(res => res.json())
     //     .then(data => setCategories(data));
     // };
+    const {id} = useParams();
 
     const history = useHistory();
+    const categories = [{
+        title:"react" , createdAt:"12/05/2021" ,id:1
+    },
+    {
+        title:"java xscript" , createdAt:"12/05/2021" ,id:2
+    },
+    {
+        title:"SQL" , createdAt:"12/05/2021",id:3,
+    }]
 
     const categories = [{
         title:"Matan Baynessai", createdAt:"12/10/2021"
@@ -33,14 +43,15 @@ const DisplayCategories = () => {
 
             <div>
                 {categories.map((category,index)=> (
-                    <div button onClick={()=> history.push(`/category/${category._id}`)}> 
-                    
+                    <div button onClick={()=> history.push(`/category/${category.id}`)}> 
+                    <Link to={`/forum/display/${category.id}`}>
                     <div><h3>{category.title}</h3>
                     <h3>{category.createdAt}</h3>
                     </div>
+                    </Link>
                     </div>
                 ))}
-                <li></li>
+                <li>im {id}</li>
             </div>
         </div>
     )
