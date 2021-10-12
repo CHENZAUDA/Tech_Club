@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react'
-import {useHistory,useParams} from 'react-router-dom';
+import {useHistory,useParams ,Link} from 'react-router-dom';
 import '../../App.css'
 const ShowAllCategories = () => {
     // const [category,setCategory] = useState([]);
@@ -18,7 +18,9 @@ const ShowAllCategories = () => {
 
     return (
         <div className="forum-body ">
+            
             <h2 className="job-interview-header">ריאיונות עבודה</h2>
+        
             <div className="category-boxes" onClick={()=> history.push('/new')}> 
             <div className="category-header" >הכנה לריאיון </div>
             <div className="category-line"></div>

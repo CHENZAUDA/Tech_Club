@@ -1,0 +1,12 @@
+.profile-details-wrapper {
+}
+
+.profile-details-row {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.profile-details-key {
+  font-size: 18px;
+}
