@@ -14,6 +14,7 @@ export default function BlogRedirect() {
         <div className="redierct-container">
             <button >צור פוסט</button>
             <input className="comment-input" placeholder="...הוסף תגובה" type="text" />
+            
         </div>
     )
 }
