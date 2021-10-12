@@ -5,10 +5,13 @@ import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
 import Navbar from '../featuers/Navbar/Navbar'
+import JobInterView from "../JobInterview/JobInterView"
 const AppRouter = () => {
     return (
         <>
+        <JobInterView/>
         <Navbar/>
+      
             <Router>
                 <Switch>
                     <Route exact path="/">
