@@ -10,6 +10,8 @@ import './CartStore.css'
 import {useHistory} from 'react-router-dom'
 import {clearCart,removeFromCart,getTotals} from '../../redux/cartSlice'
 import { useSelector, useDispatch } from "react-redux";
+import { Star } from '@mui/icons-material';
+
 
 
 export default function CartStore() {
@@ -56,9 +58,9 @@ export default function CartStore() {
               <option>2</option>
               <option>3</option></select></TableCell>
               <TableCell align="right">{product.description}</TableCell>
-              <TableCell align="right" style={{color:"green",fontSize:"1rem",fontWeight:"700"}}>{product.price}$</TableCell>
-              <TableCell align="right"><img src={product.image} alt={product.title} onClick={()=> history.push(`/product/${product._id}`)}/></TableCell>
-              <TableCell align="right"><button onClick={()=> removeProductFromCart(product)}>Remove</button></TableCell>
+              <TableCell align="right" style={{color:"green",fontSize:"1rem",fontWeight:"700"}}>{product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></TableCell>
+              <TableCell align="right"><img src={product.image} alt={product.title} className="cart-product-img" onClick={()=> history.push(`/product/${product._id}`)}/></TableCell>
+              <TableCell align="right"><button onClick={()=> removeProductFromCart(product)}>מחק</button></TableCell>
             </TableRow>
           ))}
         </TableBody>
