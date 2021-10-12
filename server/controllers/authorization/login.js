@@ -1,7 +1,7 @@
 const UserModel = require("../../models/userModel");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const validateLoginInput = require("./loginValidation");
+const {validateLoginInput} = require("./loginValidation");
 const SECRET_KEY = process.env.SECRET_KEY;
 
 const login = async (req, res) => {
@@ -25,7 +25,7 @@ const login = async (req, res) => {
           .json({
             success: false,
             message: "userName not found",
-            errors: { email: "userName not fond" },
+            errors: { userName: "userName not fond" },
           });
       };
 
@@ -40,7 +40,7 @@ const login = async (req, res) => {
           });
       };
       delete user.password
-      const token = jwt.sign(staff.toJSON(), SECRET_KEY, { expiresIn: "1d" });
+      const token = jwt.sign(user.toJSON(), SECRET_KEY, { expiresIn: "1d" });
       res
         .status(200)
         .json({

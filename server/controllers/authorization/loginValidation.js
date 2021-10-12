@@ -4,7 +4,7 @@ const isEmpty = require("is-empty");
 const validateLoginInput = (data) => {
     let errors = {};
 
-    data.email = !isEmpty(data.email) ? data.email : "";
+    data.userName = !isEmpty(data.userName) ? data.userName : "";
     data.password = !isEmpty(data.password) ? data.password : "";
 
     if (Validator.isEmpty(data.userName)) {
@@ -20,4 +20,6 @@ const validateLoginInput = (data) => {
     };
 };
 
-module.exports = {validateLoginInput};
+module.exports = {
+    validateLoginInput
+};

@@ -1,6 +1,6 @@
 .categorybox p {
-    text-align: right;
-  font-family:GraublauWeb,Verdana, Arial, Helvetica, sans-serif;
+  text-align: right;
+  font-family: GraublauWeb, Verdana, Arial, Helvetica, sans-serif;
   display: flex;
   justify-content: flex-end;
 }
@@ -9,23 +9,25 @@
   display: flex;
   justify-content: center;
   text-align: right;
-  font-family:GraublauWeb,Verdana, Arial, Helvetica, sans-serif;
+  font-family: GraublauWeb, Verdana, Arial, Helvetica, sans-serif;
 }
 .container h4 {
   display: flex;
   justify-content: center;
   text-align: right;
-  font-family:GraublauWeb,Verdana, Arial, Helvetica, sans-serif;
+  font-family: GraublauWeb, Verdana, Arial, Helvetica, sans-serif;
   font-weight: 800;
   font-size: larger;
-  
 }
 .container {
-  background-color: #f4f4f4;
+  background-image: url("https://media.istockphoto.com/photos/abstract-blur-white-color-background-with-glowing-shine-bright-and-picture-id1014322092?k=20&m=1014322092&s=612x612&w=0&h=5KtVUsu2caUXvpoqus4zhKNJROkKVPv1R1kfyMayFG0=");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   padding: 2px 16px;
 }
 .icons {
+  cursor: pointer;
   display: flex;
   justify-content: center;
 }
@@ -45,7 +47,7 @@ button {
   margin-top: 2rem;
 }
 .template {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
   display: flex;
   justify-content: center;
   align-items: center;
