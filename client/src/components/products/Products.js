@@ -7,6 +7,8 @@ import { Star } from '@mui/icons-material';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
 import IconButton from '@mui/material/IconButton';
 import Button from '@mui/material/Button';
+import { addToCart } from "../../redux/cartSlice";
+
 
 
 const Products = () => {
@@ -16,6 +18,10 @@ const Products = () => {
   useEffect(() => {
     dispatch(getProducts());
   }, [dispatch]);
+
+  const addProductToCart =(product) => {
+      dispatch(addToCart(product))
+  }
 
   const getAllProducts = useSelector((state) => state.products);
   const { products, loading, error } = getAllProducts;
@@ -28,9 +34,9 @@ const Products = () => {
              products.map((product)=>(
                 <div className="products-card">
                     <h4>{product.title}</h4>
-                    <p>{product.description}</p>
-                    <img src={product.image} alt={product.title}/>
-                    <div className="star-icon"><IconButton color="primary" aria-label="add to shopping cart">
+                    <p className="product-desc">{product.description}</p>
+                    <img src={product.image} alt={product.title} className="product-img-display"/>
+                    <div className="star-icon"><IconButton color="primary" aria-label="add to shopping cart" onClick={()=> addProductToCart(product)}>
                       <AddShoppingCartIcon />
                     </IconButton></div>
                     <p>{product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></p>
