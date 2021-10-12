@@ -52,6 +52,7 @@ export default function BlogComponent() {
             </CardContent>
             <CardActions>
               <Button
+                
                 onClick={() => history.push("/blog")}
                 variant="contained"
                 size="large"
