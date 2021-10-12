@@ -28,7 +28,6 @@ export default function SocialMediaCom() {
 
   return (
     <div className="container-blog">
-        {/* <header className="blog-title">Wellcome !!</header> */}
       {data.map((subject) => {
         return (
           <Card sx={{ maxWidth: 345 }}>
