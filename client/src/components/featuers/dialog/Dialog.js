@@ -16,12 +16,15 @@ import TableHead from "@mui/material/TableHead";
 import CheckIcon from "@mui/icons-material/Check";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import { ValidatorForm, TextValidator } from 'react-material-ui-form-validator';
 import "./dialog.css";
 
 const FormDialog = () => {
   const [open, setOpen] = React.useState(false);
   const [iseditEditButtonClicked, setiseditEditButtonClicked] =
     React.useState(false);
+  const [isPasswordValid, setIsValidPassword] = React.useState();
+  const [validPassword, setValidPassword] = React.useState("");
   const user = {
     userName: "someGuy",
     password: "fghjk123",
@@ -37,15 +40,21 @@ const FormDialog = () => {
 
   const handleClose = () => {
     setOpen(false);
+    setiseditEditButtonClicked(false);
   };
 
   const showEditInput = () => {
     setiseditEditButtonClicked(true);
-    alert("hello");
   };
   const checkout = () => {
     setiseditEditButtonClicked(false);
-    alert("hello");
+    if (validPassword === user1.password) {
+      setIsValidPassword(true);
+    }
+    else{
+      setIsValidPassword(false);
+
+    }
   };
   function createData(name, calories, fat, carbs, protein) {
     return { name, calories, fat, carbs, protein };
@@ -55,16 +64,19 @@ const FormDialog = () => {
       ...user1,
       [e.target.id]: e.target.value,
     });
-    console.log(user1)
+    console.log(user1);
+  };
 
+  const OnValidPassword = (e) => {
+    setValidPassword(e.target.value);
+    console.log(validPassword);
   };
 
   return (
     <div>
       <AccountCircleIcon
-        variant="outlined"
+        style={{ color: "#716f81", width: 30, marginTop: 25 }}
         onClick={handleClickOpen}
-        style={{ color: "#716f81", marginTop: 20 }}
       ></AccountCircleIcon>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle style={{ textAlign: "right" }}>היי שם משתמש </DialogTitle>
@@ -158,12 +170,13 @@ const FormDialog = () => {
                 autoFocus
                 margin="dense"
                 id="passwordValid"
-                label="אנא אמת סיסמה"
+                label={"אנא אמת סיסמה"}
                 type="password"
                 fullWidth
                 variant="standard"
-                onChange={onEditUser}
+                onChange={OnValidPassword}
               />{" "}
+              {!isPasswordValid ? <p>"הסיסמאות אינן תואמות"</p> : ""}
               <TextField
                 autoFocus
                 margin="dense"
