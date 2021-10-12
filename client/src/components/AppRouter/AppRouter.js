@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
-import Home from '../pages/Home'
+import Home from '../pages/Home/Home'
 import LoginForm from '../userauth/LoginForm'
 import ForgotPassword from '../userauth/ForgotPassword'
 import DisplayProduct from '../products/DisplayProduct'
@@ -48,11 +48,11 @@ const AppRouter = () => {
                         {/* {!user ? <Login/> : <Redirect to="/" />} */}
                     {/* </Route>
                     <Route path="/auth/register"> */}
-                        {/* {!user ? <Register/> : <Redirect to="/" />} */}
-                    {/* </Route>
+          {/* {!user ? <Register/> : <Redirect to="/" />} */}
+          {/* </Route>
                     <Route path="/category/create"> */}
-                        {/* {!user ? <CreateCategory/> : <Redirect to="/auth/login" />} */}
-                    {/* </Route>
+          {/* {!user ? <CreateCategory/> : <Redirect to="/auth/login" />} */}
+          {/* </Route>
                     <Route path="/category/interviews">
                         <ShowAllCategories/> 
                     </Route>*/}
@@ -87,10 +87,10 @@ const AppRouter = () => {
                     <Route path="/new">
                         <CreateForum/>
                                             </Route> */}
-                </Switch>
-            </Router>
-        </>
-    )
-}
+        </Switch>
+      </Router>
+    </>
+  );
+};
 
-export default AppRouter
+export default AppRouter;
