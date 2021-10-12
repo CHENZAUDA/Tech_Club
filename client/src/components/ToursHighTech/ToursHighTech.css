@@ -20,6 +20,7 @@
   font-size: larger;
 }
 .container {
+  background-image: url("https://image.shutterstock.com/image-photo/brilliant-blurry-white-background-festive-260nw-1035175972.jpg");
   background-color: #f4f4f4;
   height: 100%;
   padding: 2px 16px;
@@ -27,6 +28,8 @@
 .icons {
   display: flex;
   justify-content: center;
+  cursor: pointer;
+
 }
 
 button {
