@@ -30,7 +30,7 @@ app.use('/api/post',forum)
 app.use('/api/user',user)
 app.use('/api/login',login)
 app.use('/api/category',isToken,category)
-app.use('/api/product',isToken,product)
+app.use('/api/product',product)
 
 const server = app.listen(PORT, () => {
   console.log('live and up on port '+PORT

@@ -27,18 +27,16 @@ const newUser = async (req, res) => {
                     message: "userName already exists",
                     data: result
                 });
-        }
-        const { firstName, lastName, email, phone, github, address, role, isApprove, userName } = req.body;
+        }})
+        const { firstName, lastName, email, phone, github, address, userName } = req.body;
         const newUser = new UserModel({
             firstName: firstName,
             lastName: lastName,
             email: email,
             phone: phone,
-            role: role,
             userName: userName,
             github: github,
-            address: address,
-            isApprove: isApprove
+            address: address
         });
         try {
             await newUser.save()
