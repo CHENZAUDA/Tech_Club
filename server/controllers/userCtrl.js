@@ -1,9 +1,7 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
-const bcrypt = require("bcrypt");
 const { SendEmails } = require('../utils/sendEmail')
-const Validator = require("validator");
-const isEmpty = require("is-empty");
+
 
 
 const newUser = async (req, res) => {
