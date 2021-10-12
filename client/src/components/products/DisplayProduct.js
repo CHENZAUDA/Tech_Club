@@ -32,7 +32,7 @@ const DisplayProduct = () => {
             <div className="product-display">
                 <img src={product.image} alt={product.title} />
                 <div className="product-details"> 
-                    <h2>{product.title}</h2>
+                    <h2 className="product-header">{product.title}</h2>
                     <p>{product.description}</p>
                     <p>Price: {product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></p>
                 </div>
