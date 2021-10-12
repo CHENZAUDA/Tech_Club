@@ -1,9 +1,13 @@
 import React, {useState, useEffect} from 'react'
 import {useHistory,useParams} from 'react-router-dom';
 import '../../App.css'
-const ShowOneCategory = () => {
+const ShowOneCategory = ({match}) => {
     // const [category,setCategory] = useState([]);
     const {id} = useParams();
+    const getId = match.params._id
+    const addToCart = (id) => {
+        console.log(id)
+    }
     // useEffect(()=> {
     //     getCategory();
     // },[]);

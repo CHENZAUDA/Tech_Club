@@ -24,14 +24,14 @@ const userSchema = new Schema(
             required: true,
             default: 'User'
         },
-        // userName:{
-        //     type:String,
-        // required:true
-        // },
-        // password: {
-        //     type: String,
-        // required: true
-        // },
+        userName: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            default:""
+        },
         github: {
             type: String,
             required: true
@@ -58,6 +58,10 @@ const userSchema = new Schema(
                     },
                 }
             ]
+        },
+        isApprove:{
+            type:Boolean,
+            default:false
         },
         posts: [{ type: Schema.Types.ObjectId, ref: "posts" }]
     },
