@@ -35,21 +35,15 @@ export default function ButtonAppBar() {
           </Button>
           <AccountCircleIcon
             style={{
-              color: "#ae00fb",
+              color: "#716f81",
               width: 30,
               marginTop: 20,
             }}
           />
-          <SettingsIcon
-            style={{
-              color: "#ae00fb",
-              width: 30,
-              marginTop: 20,
-            }}
-          />
+
           <NotificationsNoneIcon
             style={{
-              color: "#ae00fb",
+              color: "#716f81",
               width: 30,
               marginTop: 20,
             }}
@@ -76,7 +70,7 @@ export default function ButtonAppBar() {
             </a>
             <a className="menu-item">
               {" "}
-              <div>חנות</div>
+              <div>ראיונות</div>
             </a>
             <a className="menu-item"> מערכת</a>
           </div>
