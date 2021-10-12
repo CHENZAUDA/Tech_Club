@@ -1,7 +1,7 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
 const { SendEmails } = require('../utils/sendEmail')
-
+const bcrypt = require('bcrypt')
 
 
 const newUser = async (req, res) => {
@@ -91,7 +91,6 @@ const getUserById = async (req, res, next) => {
 
 module.exports = {
     newUser,
-    enterPassword,
     getUsers,
     getUserById
 }
