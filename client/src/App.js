@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import logo from "./logo.svg";
-import "./App.css";
-import AuthContext from "./context/AuthContext";
-import AppRouter from "./components/AppRouter/AppRouter";
-import ButtonAppBar from "./components/featuers/Navbar/Navbar";
-=======
 import logo from './logo.svg';
 import './App.css';
 import AuthContext from './context/AuthContext';
@@ -55,24 +48,17 @@ const useStyles = makeStyles(  theme => ({
         textAlign:"center"
     }
 }))
->>>>>>> 6ebf481143dfc7a55b53f3a50aa127d91306895c
 
 function App() {
    const classes = useStyles();
   return (
     <div>
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
-<<<<<<< HEAD
-      <ButtonAppBar />
-
-      <AppRouter />
-=======
         <AppRouter/>
         {/* <RegisterOneForm/> */}
         {/* <RegisterTwoForm/> */}
         
         {/* <LoginForm/>  */}
->>>>>>> 6ebf481143dfc7a55b53f3a50aa127d91306895c
       {/* </AuthContext.Provider> */}
     </div>
   );
