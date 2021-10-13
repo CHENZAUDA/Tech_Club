@@ -12,6 +12,11 @@ import {
   Typography,
   Select
 } from "@mui/material";
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
 import {makeStyles} from '@mui/styles'
 import {useHistory} from 'react-router-dom'
 import {userAPI} from '../../service/api.service'
@@ -53,11 +58,22 @@ const RegisterTwoForm = () => {
     const [password,setPassword] = useState(null);
     const [email,setEmail] = useState(null);
     const [userName,setUserName] = useState(null);
+    const [open, setOpen] = useState(false);
 
     const getUserDetails = localStorage.getItem('userRegister');
     const userInfo = JSON.parse(getUserDetails);
     const newUser = {...userInfo,email:email,password:password,userName:userName}
 
+
+    const handleClickOpen = () => {
+      setOpen(true);
+    };
+  
+    const handleClose = () => {
+      setOpen(false);
+      history.push('/home')
+    };
+  
     const registerUser =(newUser) => {
       if(!newUser.email || !newUser.password){
         alert("not details included")
@@ -73,9 +89,8 @@ const RegisterTwoForm = () => {
   body: JSON.stringify(newUser),
 })
 .then(response => response.json())
-.then(data => {
-  console.log('Success:', data);
-})
+.then(data => data)
+  
     }
     
     return (
@@ -153,14 +168,37 @@ const RegisterTwoForm = () => {
                     control={<Checkbox value="remember" color="primary"/>}
                     label="הרשמו לניוזלטר לקבלת עדכונים שוטפים" 
                     />
-                    <Button
-                    type="submit"
-                    fullWidth
-                    variant="contained"
-                    color="primary"
-                    onClick={()=> registerUser(newUser)}
-                    className={classes.submit}>הרשם - שלב 2/2</Button>
+                    
+                    <Button  variant="outlined" fullWidth
+                    variant="contained" className={classes.submit}
+                    color="primary" onClick={()=>{
+                      registerUser(newUser)
+                      handleClickOpen()
+                    }}>
+                      הרשם - שלב 2/2
+                    </Button>  
                 </form>
+                
+                      <>
+                    <Dialog
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="alert-dialog-title"
+                      aria-describedby="alert-dialog-description"
+                    >
+                      <DialogTitle id="alert-dialog-title">
+                        {"עדכון הרשמת משתמשים באתר"}
+                      </DialogTitle>
+                      <DialogContent>
+                        <DialogContentText id="alert-dialog-description">
+                          פרטיך באתר נקלטו בהצלחה, אנא המתן לאישור מנהל אתר על מנת לאשר את המשתמש שלך.
+                        </DialogContentText>
+                      </DialogContent>
+                      <DialogActions>
+                        <Button onClick={handleClose}>חזור לאתר</Button>
+                        
+                      </DialogActions>
+                    </Dialog></>
             </div>
         
         </Container>

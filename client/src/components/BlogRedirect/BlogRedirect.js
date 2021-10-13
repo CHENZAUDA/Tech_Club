@@ -4,7 +4,6 @@ import './blogredirect.css'
 export default function BlogRedirect() {
     const [data , setData] = useState("")
     const [isClicked , setIsClicked] = useState(false)
-    const [data , setData] = useState("")
 
     // useEffect(() => {
     //     fetch("http://localhost:8080/")

@@ -2,7 +2,7 @@ import React from 'react'
 import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
-import Home from '../pages/Home'
+// import Home from '../pages/Home'
 import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
@@ -11,13 +11,15 @@ import BlogComponent from "../Blog/BlogComponent";
 import SocialMediaCom from '../Social Media/SocialMediaCom'
 import DisplayCategories from "../category/DisplayCategories";
 
+
+
 const AppRouter = () => {
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/">
-            <Home />
+            {/* <Home /> */}
           </Route>
           <Route path="/auth/login">
             {/* {!user ? <Login/> : <Redirect to="/" />} */}
@@ -51,7 +53,7 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
-            <Home />
+            {/* <Home /> */}
           </Route>
           <Route path="/forum/create/:id">
             {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
@@ -68,6 +70,13 @@ const AppRouter = () => {
           <Route path="/new">
             <DisplayCategories />
           </Route>
+          <Route path="/register/one">
+            <RegisterOneForm />
+          </Route>
+          <Route path="/register/two">
+            <RegisterTwoForm />
+          </Route>
+          
         </Switch>
       </Router>
     </>

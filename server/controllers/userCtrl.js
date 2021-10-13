@@ -1,10 +1,6 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
 const { SendEmails } = require('../utils/sendEmail')
-<<<<<<< HEAD
-const { nullError, isEmptyId } = require("../utils/Errors");
-=======
->>>>>>> 58df41e4f07e3cc64e889e8b12f6d6e8f1dda960
 const bcrypt = require('bcrypt')
 
 
@@ -178,16 +174,11 @@ const deleteUser = async(req,res)=>{
 }
 module.exports = {
     newUser,
-<<<<<<< HEAD
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
     prefUpdate
-=======
-    getUsers,
-    getUserById
->>>>>>> 58df41e4f07e3cc64e889e8b12f6d6e8f1dda960
 }
 
 

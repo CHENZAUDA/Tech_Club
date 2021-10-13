@@ -26,14 +26,7 @@ const DisplayCategories = () => {
         title:"SQL" , createdAt:"12/05/2021",id:3,
     }]
 
-    const categories = [{
-        title:"Matan Baynessai", createdAt:"12/10/2021"
-    },{
-        title:"Matan Baynessai", createdAt:"12/10/2021"
-    },{
-        title:"Matan Baynessai", createdAt:"12/10/2021"
-    }]
-
+    
 
 
     return (

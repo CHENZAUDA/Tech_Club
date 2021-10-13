@@ -49,15 +49,8 @@ export default function BlogComponent() {
                 תבוא נארגן אותך
               </Typography>
             </CardContent>
-            <CardActions>
-              <Button
-                
-                onClick={() => history.push("/blog")}
-                variant="contained"
-                size="large"
-              >
-                לחץ כאן לשמוע עוד
-              </Button>
+            <CardActions onClick={()=>{history.push()}}>
+             קרא עוד ...
             </CardActions>
           </Card>
         );
