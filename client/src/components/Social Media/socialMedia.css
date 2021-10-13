@@ -2,9 +2,6 @@
   display: flex;
   justify-content: space-around;
 }
-.social-media-card {
-  background: yellow;
-}
 
 @media only screen and (max-width: 800px) {
   .social-media-card-conatiner {
@@ -14,4 +11,20 @@
   .social-media-card {
     margin-top: 20px;
   }
+}
+
+.hedaer-socialmedia-container {
+  display: flex;
+  justify-content: flex-end;
+}
+.hedaer-socialmedia-decortion-wrapper {
+  width: 200px;
+  display: flex;
+  margin-bottom: 30px;
+  margin-right: 10px;
+}
+.hedaer-socialmedia-decortion {
+  width: 0px;
+  border-left: black 5px solid;
+  height: 30px;
 }

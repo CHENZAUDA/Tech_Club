@@ -10,12 +10,6 @@ function App() {
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
       <Navbar />
       <AppRouter />
-      {/* <Products/> */}
-      {/* <RegisterOneForm/> */}
-      {/* <RegisterTwoForm/> */}
-
-      {/* <LoginForm/>  */}
-      {/* </AuthContext.Provider> */}
     </div>
   );
 }

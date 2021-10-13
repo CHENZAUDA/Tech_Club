@@ -22,38 +22,45 @@ export default function SocialMediaCom() {
   console.log(socialMediaData);
 
   return (
-    <div className="social-media-card-conatiner">
-      {socialMediaData.map((category, i) =>
-        category._id === idJobInterviews
-          ? category.cards.map((card, i) => (
-              <Card sx={{ maxWidth: 345 }} className="social-media-card">
-                <CardMedia
-                  component="img"
-                  height="220"
-                  image="https://img.graphicsurf.com/2020/10/social-media-vector-flat-illustration.jpg"
-                  alt="picture"
-                />
-                <CardContent>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {card.cardName}
-                  </Typography>
-                  <Typography
-                    variant="body2"
-                    color="text.secondary"
-                    style={{ textAlign: "right" }}
-                  >
-                    {card.info}
-                  </Typography>
-                </CardContent>
-                <CardActions>
-                  <Button size="large" style={{ background: "#B8B5FF" }}>
-                    <p style={{color:"white"}}>לפורום</p>
-                  </Button>
-                </CardActions>
-              </Card>
-            ))
-          : ""
-      )}
-    </div>
+    <>
+      <div className="hedaer-socialmedia-container">
+        <div className="hedaer-socialmedia-container">
+          <div className="hedaer-socialmedia-decortion-wrapper">
+            <p style={{ marginRight: 10, fontSize: 24 }}>רשתות חברתיות </p>
+            <div className="hedaer-socialmedia-decortion"></div>
+          </div>
+        </div>
+      </div>
+      <div className="social-media-card-conatiner">
+        {socialMediaData.map((category, i) =>
+          category._id === idJobInterviews
+            ? category.cards.map((card, i) => (
+                <Card sx={{ maxWidth: 345 }} className="social-media-card">
+                  <CardMedia
+                    component="img"
+                    height="220"
+                    image="https://img.graphicsurf.com/2020/10/social-media-vector-flat-illustration.jpg"
+                    alt="picture"
+                  />
+                  <CardContent>
+                    <Typography gutterBottom variant="h5" component="div">
+                      <p style={{ textAlign: "right", fontSize: 20 }}>
+                        {card.cardName}
+                      </p>
+                    </Typography>
+                    <Typography
+                      variant="body2"
+                      color="text.secondary"
+                      style={{ textAlign: "right" }}
+                    >
+                      {card.info}
+                    </Typography>
+                  </CardContent>
+                </Card>
+              ))
+            : ""
+        )}
+      </div>
+    </>
   );
 }

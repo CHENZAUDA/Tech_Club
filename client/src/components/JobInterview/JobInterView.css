@@ -58,8 +58,8 @@ button {
   flex-direction: column;
   width: 300px;
 }
-img {
+#job-Interview-img {
   border-radius: 10px 10px 5px 5px;
-  width: 300px;
+width: 300px;
   height: 200px;
 }

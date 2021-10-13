@@ -61,9 +61,9 @@ const Navbar = () => {
             {/* </Link> */}
             <a className="menu-item">
               {" "}
-              <div>ראיונות</div>
+              <div> עבודה ראיונות</div>
             </a>
-            <a className="menu-item"> אודותינו</a>
+            <a className="menu-item"> רשתות חברתיות  </a>
           </div>
         </Toolbar>
       </AppBar>
