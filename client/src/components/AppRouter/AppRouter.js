@@ -84,6 +84,8 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
+
+            {/* <Home /> */}
           </Route>
           <Route path="/forum/create/:id">
             {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}

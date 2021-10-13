@@ -5,9 +5,9 @@ const comment = require('../controllers/commentCtrl')
 
 //post
 router.post("/", forum.post);
-router.get("/:id", forum.getById);
+router.get("/getById", forum.getById);
 router.get("/", forum.getAll);
-router.put("/:id", forum.getByIdAndUpdate);
+router.put("/edit/:id", forum.getByIdAndUpdate);
 router.delete("/:id", forum.deleteById);
 
 

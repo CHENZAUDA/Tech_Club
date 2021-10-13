@@ -31,9 +31,6 @@ const DisplayCategories = () => {
     }]
 
 
-
-
-
     return (
         <div>
             <h1>Display Category</h1>
