@@ -1,0 +1,8 @@
+.redierct-container{
+    display: flex;
+    justify-content: center;
+}
+.comment-input{
+    size: 40px;
+    height: 40px;
+}

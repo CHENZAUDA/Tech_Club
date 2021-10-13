@@ -2,11 +2,12 @@ const nodemailer = require("nodemailer");
 const { EMAIL_API, EMAIL_ADDRESS } = process.env;
 
 const SendEmails = (req, res) => {
-    const { email, password } = req.body;
+    const { email, password, userName } = req.body;
     const output = `
       <h3> ברוך/ה הבא/ה ל Tech-Club </h3>
       <h4>להלן פרטי התתחברות למועדון טק קריירה </h4>
       <ul>  
+      <li>password: ${userName}</li>
         <li>password: ${password}</li>
       </ul>
       <h3>!שים לב </h3>

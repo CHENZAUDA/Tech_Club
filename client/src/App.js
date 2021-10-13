@@ -4,13 +4,14 @@ import AuthContext from './context/AuthContext';
 import AppRouter from './components/AppRouter/AppRouter';
 import Products from './components/products/Products'
 import ToursHighTech from './components/ToursHighTech/ToursHighTech'
+import Navbar from './components/featuers/Navbar/Navbar';
 
 function App() {
   return (
-    <div >
+    <div>
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
-        {/* <AppRouter/> */}
-        <ToursHighTech/>
+      <Navbar/>
+        <AppRouter/>
         {/* <Products/> */}
         {/* <RegisterOneForm/> */}
         {/* <RegisterTwoForm/> */}

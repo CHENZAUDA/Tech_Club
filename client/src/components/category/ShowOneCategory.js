@@ -22,9 +22,9 @@ const ShowOneCategory = ({match}) => {
 
     return (
         <div className="forum-body ">
-            <h1 className="job-forum-header">הכנה לריאיון</h1>
+            <h1 className="job-forum-header">{id}הכנה לריאיון</h1>
             <div className="addorfilter">
-                <div>חפש <input type="text" /><button>חיפוש</button>  בחר נושא <select><option></option><option>A</option><option>B</option></select></div>
+                <div>חפש <input type="text" /><button>חיפוש</button> {id} בחר נושא <select><option></option><option>A</option><option>B</option></select></div>
                 <div><button>העלה נושא חדש</button></div>
             </div>
             <div className="category-boxes"> 

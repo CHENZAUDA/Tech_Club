@@ -30,7 +30,7 @@ const userSchema = new Schema(
         },
         password: {
             type: String,
-            default:""
+            required: true
         },
         github: {
             type: String,
