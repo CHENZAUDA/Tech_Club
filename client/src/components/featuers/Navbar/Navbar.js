@@ -8,10 +8,11 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
 import FormDialog from "../dialog/Dialog";
 import "./Navbar.css";
+import {useHistory} from 'react-router-dom'
 
 const Navbar = () => {
       const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
-      
+      const history = useHistory();
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar position="static" style={{ background: "white",height:80,boxShadow:"none" }}>
@@ -33,9 +34,9 @@ const Navbar = () => {
               marginTop: 20,
             }}
           >
-            <p className="navbar-login-btn-text">התחבר</p>
+            <p className="navbar-login-btn-text" >התחבר</p>
           </Button>
-          <FormDialog  />
+          {isLogin? null :<> 
           <NotificationsNoneIcon
             style={{
               color: "#716f81",
@@ -43,12 +44,15 @@ const Navbar = () => {
               marginTop: 20,
             }}
           />
-
+          
+          <FormDialog  />
           <Typography
             variant="h6"
             component="div"
             sx={{ flexGrow: 1 }}
           ></Typography>
+          </>}
+          
           <div className="menu-items">
             <a className="menu-item">
               {" "}
