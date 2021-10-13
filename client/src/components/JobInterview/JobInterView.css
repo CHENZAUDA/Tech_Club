@@ -4,6 +4,10 @@
   display: flex;
   justify-content: flex-end;
 }
+.container {
+  display: flex;
+  background: red;
+}
 
 .container h2 {
   display: flex;
