@@ -61,6 +61,21 @@ export default function SocialMediaCom() {
             : ""
         )}
       </div>
+
+      <Button
+        variant="outlined"
+        style={{
+          width: "130px",
+          borderRadius: 24,
+          background: "#FF00E4",
+          color: "white",
+          border: "none",
+          padding: 7,
+          marginTop: 20,
+        }}
+      >
+        <p className="home-btn-text">הירשם</p>
+      </Button>
     </>
   );
 }
