@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState,useEffect} from 'react'
 import {
   Container,
   Avatar,
@@ -56,6 +56,21 @@ const useStyles = makeStyles(  theme => ({
 const RegisterOneForm = () => {
     const classes= useStyles();
     const history=useHistory();
+    const [address,setAddress] = useState(null);
+    const [firstName,setFirstName] = useState(null);
+    const [lastName,setLastName] = useState(null);
+    const [email,setEmail] = useState(null);
+    const [phone,setPhone] = useState(null);
+    const [github,setGithub] = useState(null);
+    const [optionOne,setOptionOne] = useState({pref:{type:[{}]}})
+    const [optionTwo,setOptionTwo] = useState({pref:{type:[{}]}})
+    const [optionThree,setOptionThree] = useState({pref:{type:[{}]}})
+
+    const beginStepTwo = () => {
+      const convertObject = {address:address,firstName:firstName,lastName:lastName,phone:phone,github:github,optionOne:optionOne,optionTwo:optionTwo,optionThree:optionThree}
+      localStorage.setItem('userRegister',JSON.stringify(convertObject)) 
+      history.push('/register/two')
+    }
     return (
         <Container component="main" maxWidth="xs">
             
@@ -84,7 +99,8 @@ const RegisterOneForm = () => {
                     name="firstName"
                     autoComplete="firstname"
                     autoFocus
-                     
+                    value={firstName}
+                    onChange={(e)=> setFirstName(e.target.value)}
                     />
                     </div>
                     <div className={classes.input}> 
@@ -96,6 +112,9 @@ const RegisterOneForm = () => {
                     name="lastName"
                     autoComplete="lastname"
                     autoFocus
+                    onChange={(e)=> setLastName(e.target.value)}
+                    value={lastName}
+
                     />
                     </div>
                     <div className={classes.input}> 
@@ -107,6 +126,9 @@ const RegisterOneForm = () => {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    value={email}
+                    onChange={(e)=> setEmail(e.target.value)}
+
                     />
                     </div>
                     <div className={classes.input}> 
@@ -118,6 +140,9 @@ const RegisterOneForm = () => {
                     name="phone"
                     autoComplete="phone"
                     autoFocus
+                    value={phone}
+                    onChange={(e)=> setPhone(e.target.value)}
+
                     />
                     </div>
                     <div className={classes.input}> 
@@ -139,7 +164,10 @@ const RegisterOneForm = () => {
                     label="פרופיל גיטהאב"
                     type="text"
                     id="github"
+                    value={github}
                     autoComplete="github"
+                    onChange={(e)=> setGithub(e.target.value)}
+
                     />
                     </div>
                     <div className={classes.input}> 
@@ -150,7 +178,10 @@ const RegisterOneForm = () => {
                     label="כתובת"
                     type="address"
                     id="address"
+                    value={address}
                     autoComplete="address"
+                    onChange={(e)=> setAddress(e.target.value)}
+
                     />
                     </div>
                     <div className={classes.para}>
@@ -161,54 +192,57 @@ const RegisterOneForm = () => {
                     <div>פלטפורמה ראשונה:</div>
                     <Select
                   native
-                 
+                 onChange={(e)=> setOptionOne({pref:{type:[{option_1:e.target.value}]}})}
                 >
                     
                   <option value={0}>אופציה 1</option>
-                  <option value={1}>React</option>
-                  <option value={2}>C#</option>
-                  <option value={2}>Redux</option>
-                  <option value={2}>MySQL</option>
-                  <option value={2}>MongoDB</option>
+                  <option value={optionOne.pref.type.option_1}>React</option>
+                  <option value={optionOne.pref.type.option_1}>C#</option>
+                  <option value={optionOne.pref.type.option_1}>Redux</option>
+                  <option value={optionOne.pref.type.option_1}>MySQL</option>
+                  <option value={optionOne.pref.type.option_1}>MongoDB</option>
                 </Select>
                     
                     <div>פלטפורמה שנייה</div>
                     <Select
                   native
-                 
+                                  onChange={(e)=> setOptionTwo({pref:{type:[{option_2:e.target.value}]}})}
+
                 >
                     
                   <option value={0}>אופציה 2</option>
-                  <option value={1}>React</option>
-                  <option value={2}>C#</option>
-                  <option value={2}>Redux</option>
-                  <option value={2}>MySQL</option>
-                  <option value={2}>MongoDB</option>
+                  <option value={optionTwo.pref.type.option_2}>React</option>
+                  <option value={optionTwo.pref.type.option_2}>C#</option>
+                  <option value={optionTwo.pref.type.option_2}>Redux</option>
+                  <option value={optionTwo.pref.type.option_2}>MySQL</option>
+                  <option value={optionTwo.pref.type.option_2}>MongoDB</option>
                 </Select>
                    
                    <div>פלטפורמה שלישית</div>
                     <Select
                   native
-                 
+                                  onChange={(e)=> setOptionThree({pref:{type:[{option_3:e.target.value}]}})}
+
                 >
                     
                   <option value={0}>אופציה 3</option>
-                  <option value={1}>React</option>
-                  <option value={2}>C#</option>
-                  <option value={2}>Redux</option>
-                  <option value={2}>MySQL</option>
-                  <option value={2}>MongoDB</option>
+                  <option value={optionThree.pref.type.option_3}>React</option>
+                  <option value={optionThree.pref.type.option_3}>C#</option>
+                  <option value={optionThree.pref.type.option_3}>Redux</option>
+                  <option value={optionThree.pref.type.option_3}>MySQL</option>
+                  <option value={optionThree.pref.type.option_3}>MongoDB</option>
                 </Select>
                </div>
                     <Button
-                    type="submit"
+                    type="button"
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={()=> history.push('/register/two')}
+                    onClick={beginStepTwo}
+                    // onClick={()=> history.push('/register/two')}
                     className={classes.submit}>הבא - שלב 1/2</Button>
                     
-                    <Grid container className={classes.para}>
+                        <Grid container className={classes.para}>
                         <Grid item xs>
                             <Link href="#" variant="body2">
                                 שכחת סיסמה?
