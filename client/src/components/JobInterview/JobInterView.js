@@ -4,7 +4,6 @@ import ForumIcon from "@material-ui/icons/Forum";
 import { useState, useEffect } from "react";
 export default function JobInterView() {
   const [categoryData, setCategoryData] = useState([]);
-  const [jobInterviewData, setJobInterviewData] = useState("");
 
   useEffect(() => {
     fetch("http://localhost:8080/api/category/getall")
@@ -14,8 +13,7 @@ export default function JobInterView() {
   }, []);
   console.log(categoryData);
   const idJobInterviews = "61662ff4aab53e6d0471903f";
-  // console.log(categoryData[0].name);
-  console.log(jobInterviewData);
+
   return (
     <>
       <h3 style ={{textAlign:"center"}}>ראיונות עבודה</h3>
