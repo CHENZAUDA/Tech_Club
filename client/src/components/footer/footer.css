@@ -1,18 +1,25 @@
 .big-boss-container{
-   display: flex;
-   flex-direction: column;
+    display: flex;
+    flex-direction: column;
+    background-color: #37475A;
+    height: 157px;
+    margin-top: 500px;
+    justify-content: flex-end;
+    align-items: center;
 }
 .footer-container{  
-    background-color: rgb(75, 71, 71); 
     display: flex;
-    margin-top: 500px;
-    height: 157px;
-    flex-direction: column;
-    justify-content: center;
-    align-content: center;
-    
+   
 }
 .sub-container{
+    display: flex;
     height: 50px;
-    background-color: black;
+    background-color: #232F3E;
+    width: 100vw;
+    justify-content:  space-around;
+    padding-top: 5px;
+}
+.copy-rights{
+    display: flex;
+    color: white;
 }

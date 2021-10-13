@@ -9,9 +9,16 @@ export default function Footer() {
       <div className="big-boss-container">
     <div className="footer-container">
       <div className="sub-container">
+        <div>
         <FacebookIcon fontSize="large" color="primary" />
+        </div>
+        <div className="copy-rights">
+        <CopyrightIcon color="primary" fontSize="small" />
+        <p>כל הזכויות שמורות לקבוצה של חן</p>
+        </div>
+        <div>
         <LinkedInIcon fontSize="large" color="primary" />
-        <CopyrightIcon fontSize="small" >כל הזכויות שמורות לצוות המפתחים</CopyrightIcon>
+        </div>
       </div>
     </div>
     </div>
