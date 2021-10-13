@@ -1,8 +1,8 @@
-import React from 'react'
-import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
+import React,{useState} from 'react'
+import {BrowserRouter as Router, Switch ,Route, Redirect} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
-// import Home from '../pages/Home'
+
 import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
@@ -10,16 +10,43 @@ import BlogRedirect from "../BlogRedirect/BlogRedirect";
 import BlogComponent from "../Blog/BlogComponent";
 import SocialMediaCom from '../Social Media/SocialMediaCom'
 import DisplayCategories from "../category/DisplayCategories";
+import Product from '../products/Products'
+import DisplayProduct from '../products/DisplayProduct'
+import CartStore from '../cart/CartStore'
+import DisplayBlog from '../Social Media/ShowBlogs'
+import ShowBlogs from '../Social Media/ShowBlogs'
+import Home from '../pages/Home/Home'
+import LoginForm from '../userauth/LoginForm'
+import AdminPanel from '../admin/AdminPanel'
+import { ProtectedRoute } from './ProtectedRoute';
+
 
 
 
 const AppRouter = () => {
+    const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
   return (
     <>
       <Router>
         <Switch>
           <Route exact path="/">
-            {/* <Home /> */}
+
+            {isLogin? <Home loggedIn={true}/> : <Home/> }
+          </Route>
+          <Route path="/store">
+            <Product/>
+          </Route>
+          <Route path="/store/product/:id">
+            <DisplayProduct/>
+          </Route>
+          <Route path="/cart">
+            <CartStore/>
+          </Route>
+          <Route path="/blogtest">
+            <ShowBlogs/>
+          </Route>
+          <Route path="/blogtest/:id">
+            <ShowBlogs/>
           </Route>
           <Route path="/auth/login">
             {/* {!user ? <Login/> : <Redirect to="/" />} */}
@@ -53,7 +80,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
+
             {/* <Home /> */}
+
           </Route>
           <Route path="/forum/create/:id">
             {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
@@ -76,7 +105,13 @@ const AppRouter = () => {
           <Route path="/register/two">
             <RegisterTwoForm />
           </Route>
-          
+          <Route path="/login">
+            <LoginForm />
+          </Route>
+          <ProtectedRoute  path="/adminpanel">
+            {isLogin?  <AdminPanel/> : <Redirect to="/"/>}
+          </ProtectedRoute>
+
         </Switch>
       </Router>
     </>

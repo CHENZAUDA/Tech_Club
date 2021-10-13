@@ -90,11 +90,12 @@ const RegisterTwoForm = () => {
 })
 .then(response => response.json())
 .then(data => data)
-  
+localStorage.removeItem("userRegister")
+
     }
     
     return (
-        <div className="animate__animated animate__fadeInDown">
+        <div className="animate_animated animate_fadeInDown">
         <Container component="main" maxWidth="xs" >
             <CssBaseline/>
             <div className={classes.paper}>

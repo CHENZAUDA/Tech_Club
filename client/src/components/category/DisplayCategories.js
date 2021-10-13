@@ -1,32 +1,34 @@
-import React, {useState, useEffect} from 'react'
-import {useHistory,useParams,Link} from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import { useHistory, useParams, Link } from "react-router-dom";
 
 const DisplayCategories = () => {
-    // const [categories,setCategories] = useState([]);
+  // const [categories,setCategories] = useState([]);
 
-    // useEffect(()=> {
-    //     getCategories();
-    // },[]);
+  // useEffect(()=> {
+  //     getCategories();
+  // },[]);
 
-    // const getCategories = async () => {
-    //     fetch('localhost:3000/api.category')
-    //     .then(res => res.json())
-    //     .then(data => setCategories(data));
-    // };
-    const {id} = useParams();
+  // const getCategories = async () => {
+  //     fetch('localhost:3000/api.category')
+  //     .then(res => res.json())
+  //     .then(data => setCategories(data));
+  // };
+  const { id } = useParams();
 
-    const history = useHistory();
-    const categories = [{
-        title:"react" , createdAt:"12/05/2021" ,id:1
+  const history = useHistory();
+
+  const categories = [
+    {
+      title: "Matan Baynessai",
+      createdAt: "12/10/2021",
     },
     {
-        title:"java xscript" , createdAt:"12/05/2021" ,id:2
+      title: "Matan Baynessai",
+      createdAt: "12/10/2021",
     },
     {
         title:"SQL" , createdAt:"12/05/2021",id:3,
     }]
-
-    
 
 
     return (

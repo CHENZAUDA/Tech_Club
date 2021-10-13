@@ -5,13 +5,18 @@ import Button from "@material-ui/core/Button";
 import AccountMenu from "../../featuers/Navbar/Navbar";
 import Navbar from "../../featuers/Navbar/Navbar";
 import LearningContect from "../learningContent/LearningContent";
-const Home = () => {
+import SocialMediaCom from "../../Social Media/SocialMediaCom"
+const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
+    <>
+    <SocialMediaCom/>
     <div className="home-body">
       <div className="home-first-section">
         <div className="home-first-section-content-container">
+          
           <div className="home-first-section-content">
+          
             <p className="home-first-section-header">Tech Some Help </p>
             פלטפורמה ייחודית, אשר בעיה לפתור את בעיית התקשורת בין בוגרי קורס "טק
             קריירה" לסטודנטים הנוכחים, בקלות וביעילות.
@@ -38,6 +43,7 @@ const Home = () => {
       </div>
       <button onClick={() => history.push("/forum")}>Click</button>
     </div>
+    </>
   );
 
 };

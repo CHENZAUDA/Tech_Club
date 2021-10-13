@@ -1,0 +1,17 @@
+.social-media-card-conatiner {
+  display: flex;
+  justify-content: space-around;
+}
+.social-media-card {
+  background: yellow;
+}
+
+@media only screen and (max-width: 800px) {
+  .social-media-card-conatiner {
+    flex-direction: column;
+    align-items: center;
+  }
+  .social-media-card {
+    margin-top: 20px;
+  }
+}

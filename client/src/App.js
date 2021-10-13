@@ -3,11 +3,14 @@ import AppRouter from './components/AppRouter/AppRouter';
 import Products from './components/products/Products'
 import Navbar from './components/featuers/Navbar/Navbar';
 import Footer from '../src/components/footer/Footer'
+import JobInterView from "./components/JobInterview/JobInterView";
+
 
 function App() {
   return (
     <div>
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
+
       <Navbar/>
         <AppRouter/>
             <Footer/>
@@ -17,6 +20,7 @@ function App() {
         {/* <RegisterTwoForm/> */}
         
         {/* <LoginForm/>  */}
+
     </div>
   );
 }

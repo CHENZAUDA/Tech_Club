@@ -1,4 +1,4 @@
-import * as React from "react";
+import React,{useState} from "react";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -8,10 +8,13 @@ import NotificationsNoneIcon from "@mui/icons-material/NotificationsNone";
 import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
 import FormDialog from "../dialog/Dialog";
 import "./Navbar.css";
+
 const Navbar = () => {
+      const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
+      
   return (
     <Box sx={{ flexGrow: 1 }}>
-      <AppBar position="static" style={{ background: "white" }}>
+      <AppBar position="static" style={{ background: "white",height:80,boxShadow:"none" }}>
         <Toolbar>
           <img
             id="navbar-logo-tech"
