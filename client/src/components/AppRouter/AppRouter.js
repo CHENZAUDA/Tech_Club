@@ -2,6 +2,7 @@ import React,{useState} from 'react'
 import {BrowserRouter as Router, Switch ,Route, Redirect} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
+
 import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
@@ -20,6 +21,8 @@ import AdminPanel from '../admin/AdminPanel'
 import { ProtectedRoute } from './ProtectedRoute';
 
 
+
+
 const AppRouter = () => {
     const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
   return (
@@ -27,6 +30,7 @@ const AppRouter = () => {
       <Router>
         <Switch>
           <Route exact path="/">
+
             {isLogin? <Home loggedIn={true}/> : <Home/> }
           </Route>
           <Route path="/store">
@@ -76,6 +80,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
+
+            {/* <Home /> */}
+
           </Route>
           <Route path="/forum/create/:id">
             {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
@@ -104,6 +111,7 @@ const AppRouter = () => {
           <ProtectedRoute  path="/adminpanel">
             {isLogin?  <AdminPanel/> : <Redirect to="/"/>}
           </ProtectedRoute>
+
         </Switch>
       </Router>
     </>
