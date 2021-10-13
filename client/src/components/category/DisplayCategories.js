@@ -27,30 +27,32 @@ const DisplayCategories = () => {
       createdAt: "12/10/2021",
     },
     {
-      title: "Matan Baynessai",
-      createdAt: "12/10/2021",
-    },
-  ];
+        title:"SQL" , createdAt:"12/05/2021",id:3,
+    }]
 
-  return (
-    <div>
-      <h1>Display Category</h1>
 
-      <div>
-        {categories.map((category, index) => (
-          <div button onClick={() => history.push(`/category/${category.id}`)}>
-            <Link to={`/forum/display/${category.id}`}>
-              <div>
-                <h3>{category.title}</h3>
-                <h3>{category.createdAt}</h3>
-              </div>
-            </Link>
-          </div>
-        ))}
-        <li>im {id}</li>
-      </div>
-    </div>
-  );
-};
 
-export default DisplayCategories;
+
+
+    return (
+        <div>
+            <h1>Display Category</h1>
+
+
+            <div>
+                {categories.map((category,index)=> (
+                    <div button onClick={()=> history.push(`/category/${category.id}`)}> 
+                    <Link to={`/forum/display/${category.id}`}>
+                    <div><h3>{category.title}</h3>
+                    <h3>{category.createdAt}</h3>
+                    </div>
+                    </Link>
+                    </div>
+                ))}
+                <li>im {id}</li>
+            </div>
+        </div>
+    )
+}
+
+export default DisplayCategories

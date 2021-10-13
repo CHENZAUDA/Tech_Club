@@ -29,6 +29,7 @@ app.use('/api/user',user)
 app.use('/api/login',login)
 app.use('/api/category',category)
 app.use('/api/product',isToken,product)
+//Blog Route
 
 const server = app.listen(PORT, () => {
   console.log("live and up on port " + PORT);

@@ -6,7 +6,7 @@ import AccountMenu from "../../featuers/Navbar/Navbar";
 import Navbar from "../../featuers/Navbar/Navbar";
 import LearningContect from "../learningContent/LearningContent";
 import SocialMediaCom from "../../Social Media/SocialMediaCom"
-const Home = () => {
+const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
     <>

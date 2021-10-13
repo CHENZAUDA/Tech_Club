@@ -1,6 +1,10 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
 const { SendEmails } = require('../utils/sendEmail')
+<<<<<<< HEAD
+=======
+const { nullError, isEmptyId } = require("../utils/Errors");
+>>>>>>> fb88846e7c7c08841e14218e394440ffa2ff4b5c
 const bcrypt = require('bcrypt')
 
 
@@ -92,8 +96,8 @@ const getAllUsers = async (req, res) => {
 }
 const getUserById = async (req, res) => {
     try {
-        isEmptyId(req.body.id)
-        await UserModel.findById(req.body.id, (err, result) => {
+        isEmptyId(req.params.id)
+        await UserModel.findById(req.params.id, (err, result) => {
             if (err) throw err;
             nullError(result, res);
         });
