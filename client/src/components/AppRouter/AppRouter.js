@@ -26,7 +26,7 @@ const AppRouter = () => {
     <>
       <Router>
         <Switch>
-          <Route exact path="/home">
+          <Route exact path="/">
             {isLogin? <Home loggedIn={true}/> : <Home/> }
           </Route>
           <Route path="/store">
