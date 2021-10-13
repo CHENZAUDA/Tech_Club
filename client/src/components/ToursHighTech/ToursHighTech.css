@@ -20,8 +20,9 @@
   font-size: larger;
 }
 .container {
-  background-image: url("https://image.shutterstock.com/image-photo/brilliant-blurry-white-background-festive-260nw-1035175972.jpg");
-  background-color: #f4f4f4;
+  background-image: url("https://cdn.wallpapersafari.com/54/20/uxkb8t.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
   height: 100%;
   padding: 2px 16px;
 }

@@ -21,6 +21,8 @@ import UserFinalRegister from '../userauth/UserFinalRegister'
 import JobInterView from '../JobInterview/JobInterView'
 import DisplayOneBlog from '../Blog/DisplayOneBlog'
 
+
+
 const AppRouter = () => {
     const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
   return (
@@ -28,6 +30,7 @@ const AppRouter = () => {
       <Router>
         <Switch>
           <Route exact path="/">
+
             {isLogin? <Home loggedIn={true}/> : <Home/> }
             <SocialMediaCom/>
             <JobInterView/>
@@ -80,6 +83,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
+
+            {/* <Home /> */}
+
           </Route>
           <Route path="/forum/create/:id">
             {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
@@ -111,6 +117,7 @@ const AppRouter = () => {
           <ProtectedRoute  path="/adminpanel">
             {isLogin?  <AdminPanel/> : <Redirect to="/"/>}
           </ProtectedRoute>
+
         </Switch>
       </Router>
     </>

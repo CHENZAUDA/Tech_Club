@@ -39,7 +39,7 @@ const getAllCategory = async (req, res) => {
 };
 const getCategoryById = async (req, res) => {
   try {
-    await CategoryModel.findById(req.params.id, (err, result) => {
+    await CategoryModel.findById(req.body.id, (err, result) => {
       if (err) console.log(err);
       res.status(201).json({
         success: true,

@@ -90,8 +90,8 @@ const RegisterTwoForm = () => {
 })
 .then(response => response.json())
 .then(data => data)
-
 localStorage.removeItem("userRegister")
+
     }
     
     return (

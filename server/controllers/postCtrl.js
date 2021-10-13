@@ -11,7 +11,6 @@ const post = async (req, res) => {
         data: result,
       });
     });
-
   } catch (err) {
     res.status(400).json({
       success: false,
@@ -41,6 +40,7 @@ const getById = async (req, res) => {
         message: "get By Id success",
         data: result,
       });
+      console.log(result);
     });
   } catch (err) {
     res.status(400).json({
