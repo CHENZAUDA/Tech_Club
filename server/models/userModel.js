@@ -31,7 +31,7 @@ const userSchema = new Schema(
         password: {
             type: String,
             required: true,
-            default:""
+            default: ""
         },
         github: {
             type: String,
@@ -48,21 +48,27 @@ const userSchema = new Schema(
                     option_1: {
                         type: String,
                         required: false
-                    },
+                    }
+                },
+                {
                     option_2: {
                         type: String,
                         required: false
-                    },
+                    }
+                },
+                {
                     option_3: {
                         type: String,
                         required: false
-                    },
+                    }
                 }
+
             ]
+
         },
-        isApprove:{
-            type:Boolean,
-            default:false
+        isApprove: {
+            type: Boolean,
+            default: false
         },
         posts: [{ type: Schema.Types.ObjectId, ref: "posts" }]
     },
