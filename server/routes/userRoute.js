@@ -6,7 +6,7 @@ const user = require('../controllers/userCtrl');
 
 
 router.post('/', user.newUser);
-router.put('/',user.enterPassword)
+// router.put('/',user.enterPassword)
 router.get('/:id', user.getUserById);
 router.get('/', user.getUsers);
 

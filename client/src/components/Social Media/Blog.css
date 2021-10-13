@@ -1,0 +1,36 @@
+.blog-body {
+  padding-top: 5rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.blog-body h2 {
+  padding: 2rem;
+}
+
+.blog-category {
+  border: 1px solid black;
+  height: 20vh;
+  text-align: right;
+  width: 80vw;
+  display: flex;
+  flex-direction: row;
+}
+
+.blog-category .right-side {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+}
+.blog-category .left-side {
+  flex: 3;
+}
+
+.blog-category .middle-line {
+  border: 0.3px solid black;
+}
