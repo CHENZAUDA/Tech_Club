@@ -1,4 +1,4 @@
-import React from "react";
+import React , {useState} from "react";
 import Box from "@material-ui/core/Box";
 import {useHistory} from 'react-router-dom'
 import {
@@ -14,6 +14,7 @@ import {
   Typography
 } from "@mui/material";
 import {makeStyles} from '@mui/styles'
+import {userLoginAPI} from '../../service/api.service'
 
 const useStyles = makeStyles(  theme => ({
     paper: {
@@ -49,9 +50,24 @@ const useStyles = makeStyles(  theme => ({
 const LoginForm = () => {
     const classes = useStyles();
       const history=useHistory();
-
+      const [userName,setUserName] = useState('');
+      const [password,setPassword] = useState('');
+      const user = {userName:userName,password:password}
+      const loginUser = async (user) => {
+       await fetch(`${userLoginAPI}`, {
+  method: 'POST', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(user),
+})
+.then(response => response.json())
+.then(data => localStorage.setItem('token',data.data))
+;
+history.push('/');
+      }
   return (
-     <Container component="main" maxWidth="xs">
+     <Container component="main" maxWidth="xs" style={{paddingTop:"5rem"}}>
             <CssBaseline />
       <div className="classes">
         <Avatar className={classes.avatar}>
@@ -66,10 +82,12 @@ const LoginForm = () => {
             margin="normal"
             required
             fullWidth
-            id="email"
-            label="אימייל"
-            name="email"
-            autoComplete="email"
+            id="userName"
+            label="שם משתמש"
+            name="userName"
+            autoComplete="userName"
+            value={userName}
+            onChange={(e)=> setUserName(e.target.value)}
             autoFocus
           />
           <TextField
@@ -81,6 +99,8 @@ const LoginForm = () => {
             label="סיסמה"
             type="password"
             id="password"
+            value={password}
+            onChange={(e)=> setPassword(e.target.value)}
             autoComplete="current-password"
           />
           <FormControlLabel
@@ -88,11 +108,12 @@ const LoginForm = () => {
             label="תזכור אותי"
           />
           <Button
-            type="submit"
+            type="button"
             fullWidth
             variant="contained"
             color="primary"
             className={classes.submit}
+            onClick={()=> loginUser(user)}
           >
             התחבר
           </Button>

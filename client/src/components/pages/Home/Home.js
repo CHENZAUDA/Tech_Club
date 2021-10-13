@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import AccountMenu from "../../featuers/Navbar/Navbar";
 import Navbar from "../../featuers/Navbar/Navbar";
 import LearningContect from "../learningContent/LearningContent";
-const Home = () => {
+const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
     <div className="home-body">
