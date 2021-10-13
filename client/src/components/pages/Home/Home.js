@@ -10,7 +10,6 @@ const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
     <>
-    <SocialMediaCom/>
     <div className="home-body">
       <div className="home-first-section">
         <div className="home-first-section-content-container">

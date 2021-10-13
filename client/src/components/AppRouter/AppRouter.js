@@ -2,7 +2,6 @@ import React,{useState} from 'react'
 import {BrowserRouter as Router, Switch ,Route, Redirect} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
-import DisplayForums from '../forum/DisplayForums'
 import ShowOneCategory from '../category/ShowOneCategory'
 import ShowAllCategories from '../category/ShowAllCategories'
 import BlogRedirect from "../BlogRedirect/BlogRedirect";
@@ -19,6 +18,8 @@ import LoginForm from '../userauth/LoginForm'
 import AdminPanel from '../admin/AdminPanel'
 import { ProtectedRoute } from './ProtectedRoute';
 import UserFinalRegister from '../userauth/UserFinalRegister'
+import JobInterView from '../JobInterview/JobInterView'
+import DisplayOneBlog from '../Blog/DisplayOneBlog'
 
 const AppRouter = () => {
     const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
@@ -28,6 +29,9 @@ const AppRouter = () => {
         <Switch>
           <Route exact path="/">
             {isLogin? <Home loggedIn={true}/> : <Home/> }
+            <SocialMediaCom/>
+            <JobInterView/>
+            <BlogComponent/>
           </Route>
           <Route path="/store">
             <Products/>
@@ -38,8 +42,8 @@ const AppRouter = () => {
           <Route path="/cart">
             <CartStore/>
           </Route>
-          <Route path="/blogtest">
-            <ShowBlogs/>
+          <Route path="/blog/:id">
+            <DisplayOneBlog/>
           </Route>
           <Route path="/blogtest/:id">
             <ShowBlogs/>
@@ -60,7 +64,7 @@ const AppRouter = () => {
             {/* {!user ? <DisplayCategories/> : <Redirect to="/auth/login" />} */}
           </Route>
           <Route path="/forum">
-            <DisplayForums />
+
           </Route>
           <Route path="/blogs">
             <BlogComponent />

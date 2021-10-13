@@ -11,7 +11,7 @@ const blogSchema = new Schema(
             required: true,
         },
         subSubject: {
-            type: [
+            type: 
                 {
                     name: {
                         type: String,
@@ -22,10 +22,9 @@ const blogSchema = new Schema(
                         required: true,
                     }
                 }
-            ]
         },
         upload:{
-            tpe:String,
+            type:String,
             // required:true
         }
 

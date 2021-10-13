@@ -3,14 +3,15 @@ const { nullError, isEmptyId, nullVariable } = require("../utils/Errors");
 
 
 const newBlog = async (req, res) => {
-    await BlogModel.insertMany([], async (err, result) => {
+    const {img,title,subSubject} = req.body;
+    const blog = await BlogModel.create({img:img,title:title,subSubject:subSubject}, async (err, result) => {
         try {
             res
                 .status(201)
                 .json({
                     success: true,
                     message: "add new blog",
-                    data: newUser
+                    data: result
                 })
         }
         catch (err) {
@@ -43,10 +44,10 @@ const getAllBlogs = async (req, res) => {
 }
 const getBlogById = async (req, res) => {
     try {
-        isEmptyId(req.body.id)
-        await BlogModel.findById(req.body.id, (err, result) => {
+        isEmptyId(req.params.id)
+        const blog = await BlogModel.findById(req.params.id, (err, result) => {
             if (err) throw err;
-            nullError(result, res);
+            res.json({message:"success",blog:result})
         });
     } catch (err) {
         res
