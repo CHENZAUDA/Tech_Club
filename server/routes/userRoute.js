@@ -8,7 +8,7 @@ const user = require('../controllers/userCtrl');
 
 
 router.get('/', user.getAllUsers);
-router.get('/userById/:id', user.getUserById);
+router.get('/userById/:id',isToken, user.getUserById);
 router.post('/', user.newUser);
 router.put('/update', isToken, user.updateUser)
 router.put('/pref_update', isToken, authRole(ROLE), user.prefUpdate)
