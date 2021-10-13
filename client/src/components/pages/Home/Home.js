@@ -40,8 +40,9 @@ const Home = ({loggedIn}) => {
           <img id="home-img-first-section" src="./learing-vector.jpg" />
         </div>
       </div>
-      <button onClick={() => history.push("/forum")}>Click</button>
+      {/* <button onClick={() => history.push("/forum")}>Click</button> */}
     </div>
+
     </>
   );
 
