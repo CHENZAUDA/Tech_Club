@@ -1,10 +1,7 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
 const { SendEmails } = require('../utils/sendEmail')
-<<<<<<< HEAD
 const { nullError, isEmptyId } = require("../utils/Errors");
-=======
->>>>>>> 58df41e4f07e3cc64e889e8b12f6d6e8f1dda960
 const bcrypt = require('bcrypt')
 
 
@@ -96,8 +93,8 @@ const getAllUsers = async (req, res) => {
 }
 const getUserById = async (req, res) => {
     try {
-        isEmptyId(req.body.id)
-        await UserModel.findById(req.body.id, (err, result) => {
+        isEmptyId(req.params.id)
+        await UserModel.findById(req.params.id, (err, result) => {
             if (err) throw err;
             nullError(result, res);
         });
@@ -178,16 +175,11 @@ const deleteUser = async(req,res)=>{
 }
 module.exports = {
     newUser,
-<<<<<<< HEAD
     getAllUsers,
     getUserById,
     updateUser,
     deleteUser,
     prefUpdate
-=======
-    getUsers,
-    getUserById
->>>>>>> 58df41e4f07e3cc64e889e8b12f6d6e8f1dda960
 }
 
 

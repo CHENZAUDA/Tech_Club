@@ -1,5 +1,5 @@
-import React from 'react'
-import {BrowserRouter as Router, Switch ,Route} from 'react-router-dom'
+import React,{useState} from 'react'
+import {BrowserRouter as Router, Switch ,Route, Redirect} from 'react-router-dom'
 import RegisterOneForm from '../userauth/RegisterOneForm'
 import RegisterTwoForm from '../userauth/RegisterTwoForm'
 import DisplayForums from '../forum/DisplayForums'
@@ -14,12 +14,21 @@ import DisplayProduct from '../products/DisplayProduct'
 import CartStore from '../cart/CartStore'
 import DisplayBlog from '../Social Media/ShowBlogs'
 import ShowBlogs from '../Social Media/ShowBlogs'
+import Home from '../pages/Home/Home'
+import LoginForm from '../userauth/LoginForm'
+import AdminPanel from '../admin/AdminPanel'
+import { ProtectedRoute } from './ProtectedRoute';
+
 
 const AppRouter = () => {
+    const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
   return (
     <>
       <Router>
         <Switch>
+          <Route exact path="/home">
+            {isLogin? <Home loggedIn={true}/> : <Home/> }
+          </Route>
           <Route path="/store">
             <Product/>
           </Route>
@@ -89,6 +98,12 @@ const AppRouter = () => {
           <Route path="/register/two">
             <RegisterTwoForm />
           </Route>
+          <Route path="/login">
+            <LoginForm />
+          </Route>
+          <ProtectedRoute  path="/adminpanel">
+            {isLogin?  <AdminPanel/> : <Redirect to="/"/>}
+          </ProtectedRoute>
         </Switch>
       </Router>
     </>

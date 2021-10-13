@@ -7,20 +7,13 @@ const isToken = require('../controllers/authorization/isToken')
 const user = require('../controllers/userCtrl');
 
 
-<<<<<<< HEAD
-router.post('/', user.newUser);
-// router.put('/',user.enterPassword)
-router.get('/:id', user.getUserById);
-router.get('/', user.getUsers);
-=======
 router.get('/', user.getAllUsers);
-router.get('/userById', isToken, user.getUserById);
-router.post('/', isToken, user.newUser);
+router.get('/userById/:id', user.getUserById);
+router.post('/', user.newUser);
 router.put('/update', isToken, user.updateUser)
 router.put('/pref_update', isToken, authRole(ROLE), user.prefUpdate)
-router.delete('/:id', isToken, user.deleteUser)
+router.delete('/:id', user.deleteUser)
 router.put('/changePassword', checkPassword, changePassword);
->>>>>>> 309ef2aa84729db812c1ccffb3cec339e9b4901c
 
 
 
