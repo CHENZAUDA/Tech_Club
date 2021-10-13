@@ -25,7 +25,6 @@ const Products = () => {
 
   const getAllProducts = useSelector((state) => state.products);
   const { products, loading, error } = getAllProducts;
-
     return (
       <div className="products-screen">
         <img src="https://elements-cover-images-0.imgix.net/d10a72e7-315e-4c46-ada8-e94ae2992598?auto=compress%2Cformat&fit=max&w=1370&s=aef79922a798dc7c578a095616040e95" height="50%" width="500px" />
@@ -40,7 +39,7 @@ const Products = () => {
                       <AddShoppingCartIcon />
                     </IconButton></div>
                     <p>{product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></p>
-                    <Button variant="contained" onClick={()=>history.push(`/store/product/${product._id}`)}>Get Details</Button>
+                    <Button variant="contained" onClick={()=>history.push(`/product/${product._id}`)}>Get Details</Button>
                     
                 </div>
             )) : error&& <h2>Error Loading Products</h2>

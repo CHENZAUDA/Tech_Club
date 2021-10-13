@@ -30,7 +30,7 @@ app.use('/api/post',isToken,forum)
 app.use('/api/user',user)
 app.use('/api/login',login)
 app.use('/api/category',category)
-app.use('/api/product',isToken,product)
+app.use('/api/product',product)
 //Blog Route
 
 const server = app.listen(PORT, () => {

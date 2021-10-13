@@ -1,6 +1,6 @@
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
 import {productAPI} from '../service/api.service'
-export const getProducts = createAsyncThunk('test', async () => {
+export const getProducts = createAsyncThunk('api/product', async () => {
     return await fetch(productAPI).then((res)=> res.json()).then((data=> data.products))
 });
 

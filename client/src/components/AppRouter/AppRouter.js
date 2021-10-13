@@ -9,7 +9,7 @@ import BlogRedirect from "../BlogRedirect/BlogRedirect";
 import BlogComponent from "../Blog/BlogComponent";
 import SocialMediaCom from '../Social Media/SocialMediaCom'
 import DisplayCategories from "../category/DisplayCategories";
-import Product from '../products/Products'
+import Products from '../products/Products'
 import DisplayProduct from '../products/DisplayProduct'
 import CartStore from '../cart/CartStore'
 import DisplayBlog from '../Social Media/ShowBlogs'
@@ -18,7 +18,7 @@ import Home from '../pages/Home/Home'
 import LoginForm from '../userauth/LoginForm'
 import AdminPanel from '../admin/AdminPanel'
 import { ProtectedRoute } from './ProtectedRoute';
-
+import UserFinalRegister from '../userauth/UserFinalRegister'
 
 const AppRouter = () => {
     const [isLogin, setIsLogin] = useState(!!localStorage.getItem("token"));
@@ -30,9 +30,9 @@ const AppRouter = () => {
             {isLogin? <Home loggedIn={true}/> : <Home/> }
           </Route>
           <Route path="/store">
-            <Product/>
+            <Products/>
           </Route>
-          <Route path="/store/product/:id">
+          <Route path="/product/:id">
             <DisplayProduct/>
           </Route>
           <Route path="/cart">
@@ -100,6 +100,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/login">
             <LoginForm />
+          </Route>
+          <Route path="/userfinalregister">
+            <UserFinalRegister />
           </Route>
           <ProtectedRoute  path="/adminpanel">
             {isLogin?  <AdminPanel/> : <Redirect to="/"/>}
