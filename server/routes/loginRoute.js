@@ -7,7 +7,6 @@ const logout = require("../controllers/authorization/logout");
 
 router.post("/", login);
 // router.post("/send_email", SendEmail);
-
 // router.post('/register',upload.single('profileImg'), register);
 router.get("/logout", logout);
 module.exports = router;

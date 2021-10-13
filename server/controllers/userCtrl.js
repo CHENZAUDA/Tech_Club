@@ -110,14 +110,14 @@ const getUserById = async (req, res) => {
 }
 
 const updateUser = async (req, res) => {
-    isEmptyId(req.body.id)
+    // isEmptyId(req.body.id)
     try {
-        await UserModel.findByIdAndUpdate(req.body.id,
+        const updatedUser = await  UserModel.updateOne({userName:req.body.userName},
             { $set: req.body },
             { new: true },
             (err, result) => {
                 if (err) throw err;
-                nullError(result, res);
+                res.json({status:"success",updatedUser:result})
             }
         );
     }

@@ -67,7 +67,7 @@ export default function CartStore() {
       </Table>
     </TableContainer>
 <button onClick={clearAllFromCart}>Clear Cart</button>
-    <button onClick={()=> history.push('/products')}>Back to Shop</button>
+    <button onClick={()=> history.push('/store')}>Back to Shop</button>
     </div>
   );
 }
