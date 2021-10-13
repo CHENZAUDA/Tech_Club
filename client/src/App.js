@@ -8,7 +8,6 @@ function App() {
   return (
     <div>
       {/* <AuthContext.Provider value={{user,setUser,logOut}} > */}
-      <JobInterView />
       <Navbar />
       <AppRouter />
       {/* <Products/> */}
