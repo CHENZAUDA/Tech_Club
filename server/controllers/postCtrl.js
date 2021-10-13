@@ -11,7 +11,7 @@ const post = async (req, res) => {
         data: result,
       });
     });
-    
+
   } catch (err) {
     res.status(400).json({
       success: false,
@@ -94,4 +94,10 @@ const deleteById = async (req, res) => {
   }
 };
 
-module.exports = { post, getById, deleteById, getAll, getByIdAndUpdate };
+module.exports = {
+  post,
+  getById,
+  deleteById,
+  getAll,
+  getByIdAndUpdate
+};

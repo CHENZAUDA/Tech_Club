@@ -1,10 +1,20 @@
 const express = require("express");
 const router = express.Router();
 const forum = require("../controllers/postCtrl");
+const comment = require('../controllers/commentCtrl')
 
-// router.post("/", forum.post);
-router.post("/getpost", forum.getById);
+//post
+router.post("/", forum.post);
+router.get("/:id", forum.getById);
 router.get("/", forum.getAll);
-// router.put("/:id", forum.getByIdAndUpdate);
-// router.delete("/:id", forum.deleteById);
+router.put("/:id", forum.getByIdAndUpdate);
+router.delete("/:id", forum.deleteById);
+
+
+///comments
+router.get('/comment/getAllComments',comment.getAllComments);
+router.get('/comment/getCommentById',comment.getCommentById);
+router.post('/comment/newComment',comment.newComment);
+router.put('/comment/getCommentAndUpdate',comment.getCommentAndUpdate);
+router.delete('/comment/deleteComment',comment.deleteComment);
 module.exports = router;

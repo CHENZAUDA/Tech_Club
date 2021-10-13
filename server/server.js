@@ -26,11 +26,11 @@ db.on("error", () => {
 
 
 //app route
-app.use('/api/post',forum)
+app.use('/api/post',isToken,forum)
 app.use('/api/user',user)
 app.use('/api/login',login)
-app.use('/api/category',isToken,category)
-app.use('/api/product',product)
+app.use('/api/category',category)
+app.use('/api/product',isToken,product)
 
 const server = app.listen(PORT, () => {
   console.log('live and up on port '+PORT
