@@ -10,7 +10,6 @@ const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
     <>
-    <SocialMediaCom/>
     <div className="home-body">
       <div className="home-first-section">
         <div className="home-first-section-content-container">
@@ -41,8 +40,9 @@ const Home = ({loggedIn}) => {
           <img id="home-img-first-section" src="./learing-vector.jpg" />
         </div>
       </div>
-      <button onClick={() => history.push("/forum")}>Click</button>
+      {/* <button onClick={() => history.push("/forum")}>Click</button> */}
     </div>
+
     </>
   );
 
