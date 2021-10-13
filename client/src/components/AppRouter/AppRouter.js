@@ -24,7 +24,7 @@ import { ProtectedRoute } from './ProtectedRoute';
 import UserFinalRegister from '../userauth/UserFinalRegister'
 import JobInterView from '../JobInterview/JobInterView'
 import DisplayOneBlog from '../Blog/DisplayOneBlog'
-
+import Navbar from '../featuers/Navbar/Navbar'
 
 
 const AppRouter = () => {
@@ -32,6 +32,7 @@ const AppRouter = () => {
   return (
     <>
       <Router>
+              <Navbar isLogin={isLogin} />
         <Switch>
           <Route exact path="/">
 
@@ -42,6 +43,9 @@ const AppRouter = () => {
           </Route>
           <Route path="/store">
             <Products/>
+          </Route>
+          <Route path="/display-category">
+            <DisplayCategories/>
           </Route>
           <Route path="/product/:id">
             <DisplayProduct/>

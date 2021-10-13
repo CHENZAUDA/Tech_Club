@@ -36,7 +36,7 @@ const Navbar = () => {
           >
             <p className="navbar-login-btn-text" >התחבר</p>
           </Button>
-          {isLogin? null :<> 
+          {!isLogin? null :<> 
           <NotificationsNoneIcon
             style={{
               color: "#716f81",
@@ -56,7 +56,7 @@ const Navbar = () => {
           <div className="menu-items">
             <a className="menu-item">
               {" "}
-              <div>חנות</div>
+              <div onClick={()=> history.push('/store')}>חנות</div>
             </a>
             {/* <Link to="/home/learning-contect"> */}
             <a className="menu-item">
