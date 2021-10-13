@@ -6,7 +6,7 @@ export default function JobInterView() {
   const [categoryData, setCategoryData] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/category/getall")
+    fetch("http://localhost:8080/api/category")
       .then((res) => res.json())
       .then((respond) => setCategoryData(respond.data))
       .catch((err) => console.log(err));
