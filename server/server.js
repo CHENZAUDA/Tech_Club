@@ -13,6 +13,7 @@ const forum = require("./routes/postRoute");
 const user = require("./routes/userRoute");
 const category = require("./routes/categoryRoute");
 const product = require("./routes/productRoute");
+const blog = require("./routes/blogRoute");
 const login = require("./routes/loginRoute");
 
 const isToken = require("./controllers/authorization/isToken");
@@ -28,8 +29,10 @@ app.use('/api/post',isToken,forum)
 app.use('/api/user',user)
 app.use('/api/login',login)
 app.use('/api/category',category)
-app.use('/api/product',isToken,product)
+app.use('/api/product',product)
+
 //Blog Route
+app.use('/api/blog',blog)
 
 const server = app.listen(PORT, () => {
   console.log("live and up on port " + PORT);
