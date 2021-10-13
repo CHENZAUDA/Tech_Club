@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const SendEmail = require("../utils/sendEmail");
+// const SendEmail = require("../utils/sendEmail");
 const login = require("../controllers/authorization/login");
 const logout = require("../controllers/authorization/logout");
 // const upload = require('../middleware/upload');
