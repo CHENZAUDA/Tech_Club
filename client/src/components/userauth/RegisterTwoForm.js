@@ -1,4 +1,4 @@
-import React from 'react'
+import React , {useState,useEffect} from 'react'
 import {
   Container,
   Avatar,
@@ -14,7 +14,7 @@ import {
 } from "@mui/material";
 import {makeStyles} from '@mui/styles'
 import {useHistory} from 'react-router-dom'
-
+import {userAPI} from '../../service/api.service'
 
 const useStyles = makeStyles(  theme => ({
     paper: {
@@ -50,6 +50,34 @@ const useStyles = makeStyles(  theme => ({
 const RegisterTwoForm = () => {
     const classes= useStyles();
     const history = useHistory();
+    const [password,setPassword] = useState(null);
+    const [email,setEmail] = useState(null);
+    const [userName,setUserName] = useState(null);
+
+    const getUserDetails = localStorage.getItem('userRegister');
+    const userInfo = JSON.parse(getUserDetails);
+    const newUser = {...userInfo,email:email,password:password,userName:userName}
+
+    const registerUser =(newUser) => {
+      if(!newUser.email || !newUser.password){
+        alert("not details included")
+        return;
+      }
+
+      console.log(newUser)
+      fetch(`${userAPI}`, {
+  method: 'POST', 
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  body: JSON.stringify(newUser),
+})
+.then(response => response.json())
+.then(data => {
+  console.log('Success:', data);
+})
+    }
+    
     return (
         <div className="animate__animated animate__fadeInDown">
         <Container component="main" maxWidth="xs" >
@@ -72,17 +100,34 @@ const RegisterTwoForm = () => {
                     name="email"
                     autoComplete="email"
                     autoFocus
+                    value={email}
+                    onChange={(e)=> setEmail(e.target.value)}
+                    />
+                    </div>
+                    <div className={classes.input}> 
+                    <TextField 
+                    required 
+                    fullWidth
+                    id="username"
+                    label="שם משתמש"
+                    name="username"
+                    autoComplete="username"
+                    autoFocus
+                    value={userName}
+                    onChange={(e)=> setUserName(e.target.value)}
                     />
                     </div>
                     <div className={classes.input}> 
                     <TextField 
                     required
                     fullWidth
-                    name="confirm-password"
+                    name="password"
                     label="סיסמה"
                     type="password"
                     id="password"
+                    
                     autoComplete="current-password"
+                    
                     />
                     </div>
                     <div className={classes.input}> 
@@ -93,7 +138,10 @@ const RegisterTwoForm = () => {
                     label="אמת סיסמה"
                     type="password"
                     id="password"
+                    value={password}
+                    onChange={(e)=> setPassword(e.target.value)}
                     autoComplete="current-password"
+                    
                     />
                     </div>
                     
@@ -110,7 +158,7 @@ const RegisterTwoForm = () => {
                     fullWidth
                     variant="contained"
                     color="primary"
-                    onClick={()=> history.push('/login')}
+                    onClick={()=> registerUser(newUser)}
                     className={classes.submit}>הרשם - שלב 2/2</Button>
                 </form>
             </div>
