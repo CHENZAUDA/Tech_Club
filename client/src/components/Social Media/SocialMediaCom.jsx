@@ -6,6 +6,8 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Link, Switch } from "react-router-dom";
+
 import "./socialMedia.css";
 
 export default function SocialMediaCom() {
@@ -14,7 +16,7 @@ export default function SocialMediaCom() {
   const idJobInterviews = "6166af3430004e4b84548fd6";
 
   useEffect(() => {
-    fetch("http://localhost:8080/api/category/getall")
+    fetch("http://localhost:8080/api/category")
       .then((res) => res.json())
       .then((respond) => setSoicalMediaDate(respond.data))
       .catch((err) => console.log(err));
@@ -61,21 +63,25 @@ export default function SocialMediaCom() {
             : ""
         )}
       </div>
-
-      <Button
-        variant="outlined"
-        style={{
-          width: "130px",
-          borderRadius: 24,
-          background: "#FF00E4",
-          color: "white",
-          border: "none",
-          padding: 7,
-          marginTop: 20,
-        }}
-      >
-        <p className="home-btn-text">הירשם</p>
-      </Button>
+      <div className="btn-more-social-container">
+        <Button
+          variant="outlined"
+          style={{
+            width: "130px",
+            height: 40,
+            borderRadius: 24,
+            background: "#C2FFD9",
+            color: "black",
+            border: "none",
+            padding: 7,
+            marginTop: 30,
+          }}
+        >
+          <Link to="">
+            <p className="home-btn-text" style={{color:"black"}}>לעוד</p>
+          </Link>
+        </Button>
+      </div>
     </>
   );
 }

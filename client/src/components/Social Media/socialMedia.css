@@ -28,3 +28,8 @@
   border-left: black 5px solid;
   height: 30px;
 }
+
+.btn-more-social-container {
+  display: flex;
+  justify-content: center;
+}

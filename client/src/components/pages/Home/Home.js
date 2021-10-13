@@ -2,10 +2,7 @@ import React from "react";
 import "./home.css";
 import { useHistory } from "react-router-dom";
 import Button from "@material-ui/core/Button";
-import AccountMenu from "../../featuers/Navbar/Navbar";
-import Navbar from "../../featuers/Navbar/Navbar";
-import LearningContect from "../learningContent/LearningContent";
-import SocialMediaCom from "../../Social Media/SocialMediaCom"
+
 const Home = ({loggedIn}) => {
   const history = useHistory();
   return (
@@ -25,6 +22,7 @@ const Home = ({loggedIn}) => {
             variant="outlined"
             style={{
               width: "130px",
+              height:"40px",
               borderRadius: 24,
               background: "#FF00E4",
               color: "white",
