@@ -1,5 +1,6 @@
 const env = require('dotenv').config()
-const dbConnection = process.env.DB_CONNECTION
+//  const dbConnection = process.env.DB_CONNECTION
+const dbConnection="mongodb+srv://chen:zauda@cluster0.xce2x.mongodb.net/techclub";
 
 const mongoose = require("mongoose");
 const options = {
@@ -7,7 +8,6 @@ const options = {
     useUnifiedTopology: true,
     useFindAndModify: false,
      useCreateIndex: true,
-
 };
 mongoose
     .connect(dbConnection, options)

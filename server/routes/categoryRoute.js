@@ -1,5 +1,6 @@
 const express = require("express");
 const router = express.Router();
+const isToken = require('../controllers/authorization/isToken')
 const category = require('../controllers/categoryCtrl')
 
 router.post('/',category.newCategory)

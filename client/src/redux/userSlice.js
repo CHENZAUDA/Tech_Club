@@ -1,26 +1,27 @@
 import { createSlice , createAsyncThunk} from "@reduxjs/toolkit";
-import {productAPI} from '../service/api.service'
-export const getProducts = createAsyncThunk('test', async () => {
-    return await fetch(productAPI).then((res)=> res.json()).then((data=> data.products))
+import {userAPI} from '../service/api.service'
+export const getUser = createAsyncThunk('Get User Details', async (id) => {
+    return await fetch(`${userAPI}/${id}`).then((res)=> res.json()).then((data=> data.user))
 });
+
 
 const initialState = {
     user:{},
     status: null,
 }
 
-const productSlicer = createSlice({
+const userSlicer = createSlice({
     name:"user",
     initialState,
     extraReducers:{
-        [getProducts.pending] : (state, action) => {
+        [getUser.pending] : (state, action) => {
             state.status = 'loading'
         },
-        [getProducts.fulfilled] : (state, {payload}) => {
-            state.products = payload
+        [getUser.fulfilled] : (state, {payload}) => {
+            state.user = payload
             state.status = 'success'
         },
-        [getProducts.rejected] : (state, action) => {
+        [getUser.rejected] : (state, action) => {
             state.status = 'failed'
         },
 
@@ -28,4 +29,4 @@ const productSlicer = createSlice({
 })
 
 
-export default productSlicer.reducer;
+export default userSlicer.reducer;

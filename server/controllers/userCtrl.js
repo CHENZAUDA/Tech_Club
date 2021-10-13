@@ -1,7 +1,8 @@
 const UserModel = require('../models/userModel')
 const validateRegisterInput = require('./authorization/registerValidation')
 const { SendEmails } = require('../utils/sendEmail')
-
+const { nullError, isEmptyId } = require("../utils/Errors");
+const bcrypt = require('bcrypt')
 
 
 const newUser = async (req, res) => {
@@ -27,7 +28,7 @@ const newUser = async (req, res) => {
                     data: result
                 });
         }
-        SendEmails(req, res);
+        // SendEmails(req, res);
         //Password Encryption Before That it enters to the database
         bcrypt.genSalt(12, (err, salt) => {
             if (err) throw err;
@@ -43,6 +44,7 @@ const newUser = async (req, res) => {
                     phone: phone,
                     role: role,
                     userName: userName,
+                    password: req.body.password,
                     github: github,
                     address: address,
                     isApprove: isApprove
@@ -72,27 +74,112 @@ const newUser = async (req, res) => {
 }
 
 
-const getUsers = async (req, res, next) => {
+const getAllUsers = async (req, res) => {
     try {
-        const oneUser = await UserModel.find({})
-        res.send(oneUser)
-    } catch (error) {
-        console.log(error)
-    }
+        await UserModel.find({}, (err, result) => {
+          if (err) throw err;
+          nullError(result, res);
+        });
+      } catch (err) {
+        res
+          .status(500)
+          .json({
+            success: false,
+            message: "get all users field",
+            error: err.message
+          });
+      }
+
 }
-const getUserById = async (req, res, next) => {
+const getUserById = async (req, res) => {
     try {
-        const oneUser = await UserModel.find({ _id: req.params.id })
-        res.send(oneUser)
-    } catch (error) {
-        console.log(error)
+        isEmptyId(req.params.id)
+        await UserModel.findById(req.params.id, (err, result) => {
+            if (err) throw err;
+            nullError(result, res);
+        });
+    } catch (err) {
+        res
+            .status(400)
+            .json({
+                success: false,
+                message: "get user by id field",
+                error: err.message
+            });
     }
 }
 
+const updateUser = async (req, res) => {
+    isEmptyId(req.body.id)
+    try {
+        await UserModel.findByIdAndUpdate(req.body.id,
+            { $set: req.body },
+            { new: true },
+            (err, result) => {
+                if (err) throw err;
+                nullError(result, res);
+            }
+        );
+    }
+    catch (err) {
+        res
+            .status(400)
+            .json({
+                success: false,
+                message: "update event field",
+                error: err.message
+            });
+    }
+}
+
+const prefUpdate = async (req, res) => {
+    isEmptyId(req.body.id)
+    try {
+        await UserModel.findByIdAndUpdate(req.body.id,
+            { $set: req.body.pref },
+            { new: true },
+            (err, result) => {
+                if (err) throw err;
+                nullError(result, res);
+            }
+        );
+    }
+    catch (err) {
+        res
+            .status(400)
+            .json({
+                success: false,
+                message: "update event field",
+                error: err.message
+            });
+    }
+}
+
+const deleteUser = async(req,res)=>{
+    try {
+        isEmptyId(req.params.id)
+        await UserModel.findByIdAndDelete(req.params.id, (err, result) => {
+          if (err) throw err;
+          nullError(result, res);
+    
+        });
+      } catch (err) {
+        res
+          .status(500)
+          .json({
+            success: false,
+            message: "deleted user field",
+            error: err.message
+          });
+      }
+}
 module.exports = {
     newUser,
-    getUsers,
-    getUserById
+    getAllUsers,
+    getUserById,
+    updateUser,
+    deleteUser,
+    prefUpdate
 }
 
 
