@@ -22,29 +22,20 @@ const post = async (req, res) => {
 };
 
 const getAll = async (req, res) => {
-  try {
-    await PostModel.find({}, (err, result) => {
+  // try {
+    const posts = await PostModel.find({}, (err, result) => {
       if (err) console.log(err);
-      console.log(result);
-      res.status(201).json({
+       res.status(201).json({
         success: true,
         message: "get all Post success",
-        data: result,
+        data: result
       });
     });
-  } catch (err) {
-    res.status(400).json({
-      success: false,
-      message: "failed get all",
-      error: err.message,
-    });
-  }
 };
 const getById = async (req, res) => {
   try {
-    await PostModel.findById(req.body.id, (err, result) => {
+    const onePost = await PostModel.findById(req.body._id, (err, result) => {
       if (err) console.log(err);
-      console.log(result);
       res.status(201).json({
         success: true,
         message: "get By Id success",
