@@ -30,6 +30,7 @@ const Home = ({loggedIn}) => {
               padding: 7,
               marginTop: 20,
             }}
+            onClick={()=> history.push('/register/one')}
           >
             <p className="home-btn-text">הירשם</p>
           </Button>
