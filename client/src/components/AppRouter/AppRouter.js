@@ -7,7 +7,6 @@ import {
 } from "react-router-dom";
 import RegisterOneForm from "../userauth/RegisterOneForm";
 import RegisterTwoForm from "../userauth/RegisterTwoForm";
-import DisplayForums from "../forum/DisplayForums";
 import ShowOneCategory from "../category/ShowOneCategory";
 import ShowAllCategories from "../category/ShowAllCategories";
 import BlogRedirect from "../BlogRedirect/BlogRedirect";
@@ -17,7 +16,6 @@ import DisplayCategories from "../category/DisplayCategories";
 import Products from '../products/Products'
 import DisplayProduct from '../products/DisplayProduct'
 import CartStore from '../cart/CartStore'
-import DisplayBlog from '../Social Media/ShowBlogs'
 import ShowBlogs from '../Social Media/ShowBlogs'
 import Home from '../pages/Home/Home'
 import LoginForm from '../userauth/LoginForm'
@@ -73,12 +71,6 @@ const AppRouter = () => {
           </Route>
           <Route path="/forum/display/">
             <ShowOneCategory />
-          </Route>
-          <Route path="/forum/create/:id">
-            {/* {!user ? <CreateForum/> : <Redirect to="/auth/login" />} */}
-          </Route>
-          <Route path="/thread/create/:id">
-            {/* {!user ? <CreateThread/> : <Redirect to="/auth/login" />} */}
           </Route>
           <Route path="/new">
             <DisplayCategories />
