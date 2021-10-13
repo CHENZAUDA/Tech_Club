@@ -33,7 +33,7 @@ const DisplayCategories = () => {
 
     return (
         <div>
-            <h1>Display Category</h1>
+            <h1></h1>
 
 
             <div>
