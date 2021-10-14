@@ -36,7 +36,7 @@ const DisplayProduct = () => {
                     <p>{product.description}</p>
                     <p>Price: {product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></p>
                 </div>
-                 <Button variant="contained" onClick={()=> addProductToCart(product)}>
+                 <Button variant="contained" sx={{height:"5rem",width:"5rem"}} onClick={()=> addProductToCart(product)}>
                      <ShoppingCartTwoToneIcon>icon</ShoppingCartTwoToneIcon>
                      הוספה לסל</Button>
             </div>

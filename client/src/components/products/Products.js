@@ -39,7 +39,7 @@ const Products = () => {
                       <AddShoppingCartIcon />
                     </IconButton></div>
                     <p>{product.price}<Star sx={{ color: "gold",fontSize: "15px"}}/></p>
-                    <Button variant="contained" onClick={()=>history.push(`/product/${product._id}`)}>Get Details</Button>
+                    <Button variant="contained" sx={{width:"10rem"}} onClick={()=>history.push(`/product/${product._id}`)}>לפרטים נוספים</Button>
                     
                 </div>
             )) : error&& <h2>Error Loading Products</h2>

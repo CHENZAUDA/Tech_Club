@@ -53,14 +53,15 @@ export default function AdminTablePanel() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.map((user) => (
-            <StyledTableRow key={user.userName}>
+          {users.map((user,i) => (
+            <StyledTableRow key={i}>
               <StyledTableCell component="th" scope="row">
                 {user.github}
               </StyledTableCell>
+              <StyledTableCell>{user.userName}</StyledTableCell>
               <StyledTableCell align="right">{user.phone}</StyledTableCell>
               <StyledTableCell align="right">{user.email}</StyledTableCell>
-              <StyledTableCell align="right">{user.address}</StyledTableCell>
+              {/* <StyledTableCell align="right">{user.address}</StyledTableCell> */}
               <StyledTableCell align="right"><button className="btn-approve">אשר משתמש</button>
               <button className="btn-approve">בטל אישור</button></StyledTableCell>
             </StyledTableRow>
